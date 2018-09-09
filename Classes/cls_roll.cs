@@ -4,18 +4,18 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using Discord;
 using Discord.Commands;
 using Discord.WebSocket;
 using Newtonsoft.Json;
-using swnbot;
+using swnbot.Classes;
+using System.Text.RegularExpressions;
 
 namespace swnbot.Classes {
 
-    public class roller {
+    public class roller : ModuleBase<SocketCommandContext> {
         public int singleRoll (String roll) {
             int num_dice = 1;
             int result = 0;
