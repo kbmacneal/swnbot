@@ -17,6 +17,10 @@ using JsonFlatFileDataStore;
 
 namespace swnbot.Classes {
 
+    public class skill{
+        
+    }
+
     public class character {
         private int ID{get;set;}
         private string name { get; set; }
@@ -24,6 +28,7 @@ namespace swnbot.Classes {
         private Classes.Class Class { get; set; }
         private Classes.Background Background { get; set; }
         private Classes.Gender Gender { get; set; }
+        private List<Classes.skill> skills{get;set;}
         private string Faction { get; set; }
         private string Homeworld { get; set; }
         private int cur_hp { get; set; }
