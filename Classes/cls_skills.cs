@@ -20,11 +20,11 @@ namespace swnbot.Classes {
     }
 
     public partial class Skill {
-        public static Skill[] Init () => JsonConvert.DeserializeObject<Skill[]> (System.IO.File.ReadAllText("skills.json"), Classes.Converter.Settings);
+        public static Skill[] Init () => JsonConvert.DeserializeObject<Skill[]> (System.IO.File.ReadAllText("skills.json"), Converter.Settings);
     }
 
     public static class Serialize {
-        public static string ToJson (this Skill[] self) => JsonConvert.SerializeObject (self, Classes.Converter.Settings);
+        public static string ToJson (this Skill[] self) => JsonConvert.SerializeObject (self, Converter.Settings);
     }
 
     internal static class Converter {
