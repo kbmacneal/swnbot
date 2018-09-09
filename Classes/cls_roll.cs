@@ -16,7 +16,7 @@ using System.Text.RegularExpressions;
 namespace swnbot.Classes {
 
     public class roller : ModuleBase<SocketCommandContext> {
-        public int singleRoll (String roll) {
+        public static int singleRoll (String roll) {
             int num_dice = 1;
             int result = 0;
             int di = roll.IndexOf ('d');
@@ -45,6 +45,18 @@ namespace swnbot.Classes {
             string rtn_name = usr.Nickname == null ? usr.Username : usr.Nickname;
 
             await ReplyAsync (rtn_name + " rolled a " + rtn.ToString ());
+        }
+
+        private static int PrivateRollAsync (params string[] args) {
+            int rtn = 0;
+            string roll = string.Join ("", args).Replace (" ", "");
+            char[] splits = new char[] { '+', '-' };
+            string[] parts = roll.Split (splits);
+            foreach (String partOfRoll in parts) { //roll each dice specified
+                rtn += singleRoll (partOfRoll);
+            }
+
+            return rtn;
         }
     }
 
