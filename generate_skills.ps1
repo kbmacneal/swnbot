@@ -1,7 +1,7 @@
 class skill {
     [int]$ID
     [string]$Name
-    [int]$Level = 0
+    [int]$Level = -1
     
 }
 
