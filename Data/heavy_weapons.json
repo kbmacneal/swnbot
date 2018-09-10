@@ -1,0 +1,226 @@
+[{
+    "Heavy Weapon": "Heavy Machine Gun",
+    "Damage": "3d6",
+    "Range": "500/2,000",
+    "Cost": "5,000",
+    "Mag": "10",
+    "Encumbrance": "3",
+    "Attribute": "Dex",
+    "TechLevel": "3"
+}, {
+    "Heavy Weapon": "Rocket Launcher",
+    "Damage": "3d10",
+    "Range": "2,000/4,000",
+    "Cost": "4,000",
+    "Mag": "1",
+    "Encumbrance": "2",
+    "Attribute": "Dex",
+    "TechLevel": "3"
+}, {
+    "Heavy Weapon": "Demo Charge",
+    "Damage": "3d10",
+    "Range": "20/40",
+    "Cost": "250",
+    "Mag": "-",
+    "Encumbrance": "1",
+    "Attribute": "-",
+    "TechLevel": "3"
+}, {
+    "Heavy Weapon": "Railgun",
+    "Damage": "3d8",
+    "Range": "4,000/8,000",
+    "Cost": "8,000",
+    "Mag": "20",
+    "Encumbrance": "*",
+    "Attribute": "Dex",
+    "TechLevel": "4"
+}, {
+    "Heavy Weapon": "Anti-Vehicle Laser",
+    "Damage": "3d10",
+    "Range": "2,000/4,000",
+    "Cost": "10,000",
+    "Mag": "15",
+    "Encumbrance": "*",
+    "Attribute": "Dex",
+    "TechLevel": "4"
+}, {
+    "Heavy Weapon": "Hydra Array",
+    "Damage": "3d6",
+    "Range": "4,000/8,000",
+    "Cost": "20,000",
+    "Mag": "10",
+    "Encumbrance": "*",
+    "Attribute": "Dex",
+    "TechLevel": "4"
+}, {
+    "Heavy Weapon": "Wheatcutter Belt",
+    "Damage": "2d12",
+    "Range": "10/20",
+    "Cost": "10,000",
+    "Mag": "5",
+    "Encumbrance": "*",
+    "Attribute": "Dex",
+    "TechLevel": "4"
+}, {
+    "Heavy Weapon": "Vortex Cannon",
+    "Damage": "5d12",
+    "Range": "1,000/2,000",
+    "Cost": "75,000",
+    "Mag": "5",
+    "Encumbrance": "*",
+    "Attribute": "Dex",
+    "TechLevel": "5"
+}, {
+    "Heavy Weapon": null,
+    "Damage": null,
+    "Range": null,
+    "Cost": null,
+    "Mag": null,
+    "Encumbrance": null,
+    "Attribute": null,
+    "TechLevel": null
+}, {
+    "Heavy Weapon": null,
+    "Damage": null,
+    "Range": null,
+    "Cost": null,
+    "Mag": null,
+    "Encumbrance": null,
+    "Attribute": null,
+    "TechLevel": null
+}, {
+    "Heavy Weapon": null,
+    "Damage": null,
+    "Range": null,
+    "Cost": null,
+    "Mag": null,
+    "Encumbrance": null,
+    "Attribute": null,
+    "TechLevel": null
+}, {
+    "Heavy Weapon": null,
+    "Damage": null,
+    "Range": null,
+    "Cost": null,
+    "Mag": null,
+    "Encumbrance": null,
+    "Attribute": null,
+    "TechLevel": null
+}, {
+    "Heavy Weapon": null,
+    "Damage": null,
+    "Range": null,
+    "Cost": null,
+    "Mag": null,
+    "Encumbrance": null,
+    "Attribute": null,
+    "TechLevel": null
+}, {
+    "Heavy Weapon": null,
+    "Damage": null,
+    "Range": null,
+    "Cost": null,
+    "Mag": null,
+    "Encumbrance": null,
+    "Attribute": null,
+    "TechLevel": null
+}, {
+    "Heavy Weapon": null,
+    "Damage": null,
+    "Range": null,
+    "Cost": null,
+    "Mag": null,
+    "Encumbrance": null,
+    "Attribute": null,
+    "TechLevel": null
+}, {
+    "Heavy Weapon": null,
+    "Damage": null,
+    "Range": null,
+    "Cost": null,
+    "Mag": null,
+    "Encumbrance": null,
+    "Attribute": null,
+    "TechLevel": null
+}, {
+    "Heavy Weapon": null,
+    "Damage": null,
+    "Range": null,
+    "Cost": null,
+    "Mag": null,
+    "Encumbrance": null,
+    "Attribute": null,
+    "TechLevel": null
+}, {
+    "Heavy Weapon": null,
+    "Damage": null,
+    "Range": null,
+    "Cost": null,
+    "Mag": null,
+    "Encumbrance": null,
+    "Attribute": null,
+    "TechLevel": null
+}, {
+    "Heavy Weapon": null,
+    "Damage": null,
+    "Range": null,
+    "Cost": null,
+    "Mag": null,
+    "Encumbrance": null,
+    "Attribute": null,
+    "TechLevel": null
+}, {
+    "Heavy Weapon": null,
+    "Damage": null,
+    "Range": null,
+    "Cost": null,
+    "Mag": null,
+    "Encumbrance": null,
+    "Attribute": null,
+    "TechLevel": null
+}, {
+    "Heavy Weapon": null,
+    "Damage": null,
+    "Range": null,
+    "Cost": null,
+    "Mag": null,
+    "Encumbrance": null,
+    "Attribute": null,
+    "TechLevel": null
+}, {
+    "Heavy Weapon": null,
+    "Damage": null,
+    "Range": null,
+    "Cost": null,
+    "Mag": null,
+    "Encumbrance": null,
+    "Attribute": null,
+    "TechLevel": null
+}, {
+    "Heavy Weapon": null,
+    "Damage": null,
+    "Range": null,
+    "Cost": null,
+    "Mag": null,
+    "Encumbrance": null,
+    "Attribute": null,
+    "TechLevel": null
+}, {
+    "Heavy Weapon": null,
+    "Damage": null,
+    "Range": null,
+    "Cost": null,
+    "Mag": null,
+    "Encumbrance": null,
+    "Attribute": null,
+    "TechLevel": null
+}, {
+    "Heavy Weapon": null,
+    "Damage": null,
+    "Range": null,
+    "Cost": null,
+    "Mag": null,
+    "Encumbrance": null,
+    "Attribute": null,
+    "TechLevel": null
+}]

@@ -1,0 +1,226 @@
+[{
+    "Name": "Primitive Bow",
+    "Damage": "1d6",
+    "Range": "50/75",
+    "Cost": "15",
+    "Magazine": "1",
+    "Attribute": "Dexterity",
+    "Encumbrance": "2",
+    "TechLevel": "1"
+}, {
+    "Name": "Advanced Bow",
+    "Damage": "1d6",
+    "Range": "100/150",
+    "Cost": "50",
+    "Magazine": "1",
+    "Attribute": "Dexterity",
+    "Encumbrance": "2",
+    "TechLevel": "3"
+}, {
+    "Name": "Conversion Bow",
+    "Damage": "1d8",
+    "Range": "150/300",
+    "Cost": "500",
+    "Magazine": "1",
+    "Attribute": "Dexterity",
+    "Encumbrance": "2",
+    "TechLevel": "4"
+}, {
+    "Name": "Grenade",
+    "Damage": "2d6",
+    "Range": "30-Oct",
+    "Cost": "25",
+    "Magazine": "0",
+    "Attribute": "Dexterity",
+    "Encumbrance": "1",
+    "TechLevel": "3"
+}, {
+    "Name": "Crude Pistol",
+    "Damage": "1d6",
+    "Range": "15-May",
+    "Cost": "20",
+    "Magazine": "1",
+    "Attribute": "Dexterity",
+    "Encumbrance": "1",
+    "TechLevel": "2"
+}, {
+    "Name": "Musket",
+    "Damage": "1d12",
+    "Range": "25/50",
+    "Cost": "30",
+    "Magazine": "1",
+    "Attribute": "Dexterity",
+    "Encumbrance": "2",
+    "TechLevel": "2"
+}, {
+    "Name": "Revolver",
+    "Damage": "1d8",
+    "Range": "30/100",
+    "Cost": "50",
+    "Magazine": "6",
+    "Attribute": "Dexterity",
+    "Encumbrance": "1",
+    "TechLevel": "2"
+}, {
+    "Name": "Rifle",
+    "Damage": "1d10+2",
+    "Range": "200/400",
+    "Cost": "75",
+    "Magazine": "6",
+    "Attribute": "Dexterity",
+    "Encumbrance": "2",
+    "TechLevel": "2"
+}, {
+    "Name": "Shotgun",
+    "Damage": "3d4",
+    "Range": "30-Oct",
+    "Cost": "50",
+    "Magazine": "2",
+    "Attribute": "Dexterity",
+    "Encumbrance": "2",
+    "TechLevel": "2"
+}, {
+    "Name": "Semi-Auto Pistol",
+    "Damage": "1d6+1",
+    "Range": "30/100",
+    "Cost": "75",
+    "Magazine": "12",
+    "Attribute": "Dexterity",
+    "Encumbrance": "1",
+    "TechLevel": "3"
+}, {
+    "Name": "Submachine Gun",
+    "Damage": "1d8*",
+    "Range": "30/100",
+    "Cost": "200",
+    "Magazine": "20",
+    "Attribute": "Dexterity",
+    "Encumbrance": "1",
+    "TechLevel": "3"
+}, {
+    "Name": "Combat Rifle",
+    "Damage": "1d12*",
+    "Range": "100/300",
+    "Cost": "300",
+    "Magazine": "30",
+    "Attribute": "Dexterity",
+    "Encumbrance": "2",
+    "TechLevel": "3"
+}, {
+    "Name": "Combat Shotgun",
+    "Damage": "3d4*",
+    "Range": "30-Oct",
+    "Cost": "300",
+    "Magazine": "12",
+    "Attribute": "Dexterity",
+    "Encumbrance": "2",
+    "TechLevel": "3"
+}, {
+    "Name": "Sniper Rifle",
+    "Damage": "2d8",
+    "Range": "1,000/2,000",
+    "Cost": "400",
+    "Magazine": "1",
+    "Attribute": "Dexterity",
+    "Encumbrance": "2",
+    "TechLevel": "3"
+}, {
+    "Name": "Void Carbine",
+    "Damage": "2d6",
+    "Range": "100/300",
+    "Cost": "400",
+    "Magazine": "10",
+    "Attribute": "Dexterity",
+    "Encumbrance": "2",
+    "TechLevel": "4"
+}, {
+    "Name": "Mag Pistol",
+    "Damage": "2d6+2",
+    "Range": "100/300",
+    "Cost": "400",
+    "Magazine": "6",
+    "Attribute": "Dexterity",
+    "Encumbrance": "1",
+    "TechLevel": "4"
+}, {
+    "Name": "Mag Rifle",
+    "Damage": "2d8+2",
+    "Range": "300/600",
+    "Cost": "500",
+    "Magazine": "10",
+    "Attribute": "Dexterity",
+    "Encumbrance": "2",
+    "TechLevel": "4"
+}, {
+    "Name": "Spike Thrower",
+    "Damage": "3d8*",
+    "Range": "20/40",
+    "Cost": "600",
+    "Magazine": "15",
+    "Attribute": "Dexterity",
+    "Encumbrance": "2",
+    "TechLevel": "4"
+}, {
+    "Name": "Laser Pistol",
+    "Damage": "1d6",
+    "Range": "100/300",
+    "Cost": "200",
+    "Magazine": "10",
+    "Attribute": "Dexterity",
+    "Encumbrance": "1",
+    "TechLevel": "4"
+}, {
+    "Name": "Laser Rifle",
+    "Damage": "1d10*",
+    "Range": "300/500",
+    "Cost": "300",
+    "Magazine": "20",
+    "Attribute": "Dexterity",
+    "Encumbrance": "2",
+    "TechLevel": "4"
+}, {
+    "Name": "Thermal Pistol",
+    "Damage": "2d6",
+    "Range": "25/50",
+    "Cost": "300",
+    "Magazine": "5",
+    "Attribute": "Dexterity",
+    "Encumbrance": "1",
+    "TechLevel": "4"
+}, {
+    "Name": "Plasma Projector",
+    "Damage": "2d8",
+    "Range": "50/100",
+    "Cost": "400",
+    "Magazine": "6",
+    "Attribute": "Dexterity",
+    "Encumbrance": "2",
+    "TechLevel": "4"
+}, {
+    "Name": "Shear Rifle",
+    "Damage": "2d8*",
+    "Range": "100/300",
+    "Cost": "600",
+    "Magazine": "10",
+    "Attribute": "Dexterity",
+    "Encumbrance": "2",
+    "TechLevel": "5"
+}, {
+    "Name": "Thunder Gun",
+    "Damage": "2d10",
+    "Range": "100/300",
+    "Cost": "1,000",
+    "Magazine": "6",
+    "Attribute": "Dexterity",
+    "Encumbrance": "2",
+    "TechLevel": "5"
+}, {
+    "Name": "Distortion Cannon",
+    "Damage": "2d12",
+    "Range": "100/300",
+    "Cost": "1,250",
+    "Magazine": "6",
+    "Attribute": "Dexterity",
+    "Encumbrance": "2",
+    "TechLevel": "5"
+}]

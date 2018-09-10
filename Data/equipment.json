@@ -1,0 +1,301 @@
+[{
+    "Name": "Atmofilter",
+    "Cost": "100",
+    "Encumbrance": "1",
+    "Tech Level": "4"
+}, {
+    "Name": "Backpack",
+    "Cost": "5/50",
+    "Encumbrance": "1/*",
+    "Tech Level": "0/4"
+}, {
+    "Name": "Binoculars",
+    "Cost": "20/200",
+    "Encumbrance": "1",
+    "Tech Level": "3/4"
+}, {
+    "Name": "Climbing harness",
+    "Cost": "50",
+    "Encumbrance": "1",
+    "Tech Level": "3"
+}, {
+    "Name": "Glowbug",
+    "Cost": "5",
+    "Encumbrance": "*",
+    "Tech Level": "3"
+}, {
+    "Name": "Grapnel launcher",
+    "Cost": "200",
+    "Encumbrance": "1",
+    "Tech Level": "3"
+}, {
+    "Name": "Grav chute",
+    "Cost": "300/1,000",
+    "Encumbrance": "1",
+    "Tech Level": "0.8"
+}, {
+    "Name": "Grav harness",
+    "Cost": "5000",
+    "Encumbrance": "3",
+    "Tech Level": "5"
+}, {
+    "Name": "Instapanel",
+    "Cost": "50",
+    "Encumbrance": "1#",
+    "Tech Level": "4"
+}, {
+    "Name": "Low-light goggles",
+    "Cost": "200",
+    "Encumbrance": "1",
+    "Tech Level": "3"
+}, {
+    "Name": "Navcomp",
+    "Cost": "500",
+    "Encumbrance": "1",
+    "Tech Level": "4"
+}, {
+    "Name": "Portabox",
+    "Cost": "50",
+    "Encumbrance": "1",
+    "Tech Level": "4"
+}, {
+    "Name": "Pressure tent",
+    "Cost": "100",
+    "Encumbrance": "4",
+    "Tech Level": "3"
+}, {
+    "Name": "Rations, 1 day",
+    "Cost": "5",
+    "Encumbrance": "1#",
+    "Tech Level": "1"
+}, {
+    "Name": "Rope, 20 meters",
+    "Cost": "4/40",
+    "Encumbrance": "2/1",
+    "Tech Level": "0/4"
+}, {
+    "Name": "Scout report",
+    "Cost": "200",
+    "Encumbrance": "*",
+    "Tech Level": "4"
+}, {
+    "Name": "Survey scanner",
+    "Cost": "250",
+    "Encumbrance": "1",
+    "Tech Level": "4"
+}, {
+    "Name": "Survival kit",
+    "Cost": "60",
+    "Encumbrance": "1",
+    "Tech Level": "4"
+}, {
+    "Name": "Telescoping pole",
+    "Cost": "10",
+    "Encumbrance": "*",
+    "Tech Level": "4"
+}, {
+    "Name": "Thermal flare",
+    "Cost": "5",
+    "Encumbrance": "*",
+    "Tech Level": "3"
+}, {
+    "Name": "Trade goods",
+    "Cost": "50",
+    "Encumbrance": "1#",
+    "Tech Level": "4"
+}, {
+    "Name": "Trade metals",
+    "Cost": "10",
+    "Encumbrance": "1#",
+    "Tech Level": "4"
+}, {
+    "Name": "Vacc fresher",
+    "Cost": "400",
+    "Encumbrance": "1",
+    "Tech Level": "4"
+}, {
+    "Name": "Vacc skin",
+    "Cost": "1000",
+    "Encumbrance": "1",
+    "Tech Level": "5"
+}, {
+    "Name": "Vacc suit",
+    "Cost": "100",
+    "Encumbrance": "2",
+    "Tech Level": "4"
+}, {
+    "Name": "Bezoar",
+    "Cost": "200",
+    "Encumbrance": "*",
+    "Tech Level": "4"
+}, {
+    "Name": "Brainwave",
+    "Cost": "1000",
+    "Encumbrance": "*",
+    "Tech Level": "5"
+}, {
+    "Name": "Hush",
+    "Cost": "200",
+    "Encumbrance": "*",
+    "Tech Level": "4"
+}, {
+    "Name": "Lift",
+    "Cost": "50",
+    "Encumbrance": "*",
+    "Tech Level": "4"
+}, {
+    "Name": "Psych",
+    "Cost": "25",
+    "Encumbrance": "*",
+    "Tech Level": "4"
+}, {
+    "Name": "Pretech Cosmetic",
+    "Cost": "1000",
+    "Encumbrance": "*",
+    "Tech Level": "5"
+}, {
+    "Name": "Reverie",
+    "Cost": "100",
+    "Encumbrance": "*",
+    "Tech Level": "4"
+}, {
+    "Name": "Squeal",
+    "Cost": "300",
+    "Encumbrance": "*",
+    "Tech Level": "4"
+}, {
+    "Name": "Tsunami",
+    "Cost": "50",
+    "Encumbrance": "*",
+    "Tech Level": "4"
+}, {
+    "Name": "Bioscanner",
+    "Cost": "300",
+    "Encumbrance": "1",
+    "Tech Level": "4"
+}, {
+    "Name": "Lazarus patch",
+    "Cost": "30",
+    "Encumbrance": "1#",
+    "Tech Level": "4"
+}, {
+    "Name": "Medkit",
+    "Cost": "100",
+    "Encumbrance": "2",
+    "Tech Level": "4"
+}, {
+    "Name": "Metatool",
+    "Cost": "200",
+    "Encumbrance": "1",
+    "Tech Level": "4"
+}, {
+    "Name": "Spare parts",
+    "Cost": "50",
+    "Encumbrance": "1#",
+    "Tech Level": "4"
+}, {
+    "Name": "Tailored antiallergens",
+    "Cost": "5",
+    "Encumbrance": "*",
+    "Tech Level": "4"
+}, {
+    "Name": "Toolkit/Postech",
+    "Cost": "300",
+    "Encumbrance": "3",
+    "Tech Level": "4"
+}, {
+    "Name": "Ammo, 20 rounds",
+    "Cost": "10",
+    "Encumbrance": "1#",
+    "Tech Level": "2"
+}, {
+    "Name": "Ammo, missile",
+    "Cost": "50",
+    "Encumbrance": "1",
+    "Tech Level": "3"
+}, {
+    "Name": "Power cell, type A",
+    "Cost": "10",
+    "Encumbrance": "1#",
+    "Tech Level": "4"
+}, {
+    "Name": "Power cell, type B",
+    "Cost": "100",
+    "Encumbrance": "1",
+    "Tech Level": "4"
+}, {
+    "Name": "Solar recharger",
+    "Cost": "500",
+    "Encumbrance": "3",
+    "Tech Level": "4"
+}, {
+    "Name": "Telekinetic generator",
+    "Cost": "250",
+    "Encumbrance": "2",
+    "Tech Level": "4"
+}, {
+    "Name": "Comm server",
+    "Cost": "1000",
+    "Encumbrance": "3",
+    "Tech Level": "4"
+}, {
+    "Name": "Compad",
+    "Cost": "100",
+    "Encumbrance": "*",
+    "Tech Level": "4"
+}, {
+    "Name": "Field radio",
+    "Cost": "200",
+    "Encumbrance": "1",
+    "Tech Level": "4"
+}, {
+    "Name": "Translator torc",
+    "Cost": "200",
+    "Encumbrance": "*",
+    "Tech Level": "4"
+}, {
+    "Name": "Black slab",
+    "Cost": "10000",
+    "Encumbrance": "1",
+    "Tech Level": "4"
+}, {
+    "Name": "Data phase tap",
+    "Cost": "5000",
+    "Encumbrance": "1",
+    "Tech Level": "4"
+}, {
+    "Name": "Data protocol",
+    "Cost": "1000",
+    "Encumbrance": "*",
+    "Tech Level": "4"
+}, {
+    "Name": "Dataslab",
+    "Cost": "300",
+    "Encumbrance": "1",
+    "Tech Level": "4"
+}, {
+    "Name": "Line shunt",
+    "Cost": "100",
+    "Encumbrance": "*",
+    "Tech Level": "4"
+}, {
+    "Name": "Remote link unit",
+    "Cost": "250",
+    "Encumbrance": "1",
+    "Tech Level": "4"
+}, {
+    "Name": "Stiletto charge",
+    "Cost": "*",
+    "Encumbrance": "1",
+    "Tech Level": "5"
+}, {
+    "Name": "Storage unit",
+    "Cost": "500",
+    "Encumbrance": "3",
+    "Tech Level": "4"
+}, {
+    "Name": "Tightbeam link unit",
+    "Cost": "1000",
+    "Encumbrance": "1",
+    "Tech Level": "4"
+}]
