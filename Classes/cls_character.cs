@@ -56,18 +56,22 @@ namespace swnbot.Classes {
 
             // Get employee collection
             store.GetCollection<character> ().InsertOneAsync (character);
+
+            store.Dispose();
         }
 
         public void update_character (character character) {
             var store = new DataStore ("character.json");
 
             store.GetCollection<character> ().UpdateOne (e => e.ID == character.ID, character);
+            store.Dispose();
         }
 
         public void delete_character (character character) {
             var store = new DataStore ("character.json");
 
             store.GetCollection<character> ().DeleteOne (e => e.ID == character.ID);
+            store.Dispose();
         }
     }
 
