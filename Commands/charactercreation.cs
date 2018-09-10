@@ -20,11 +20,13 @@ namespace swnbot.Commands {
         public async Task NewcharacterAsync (string name) {
             Classes.character character = new character ();
 
+            string base_dir = AppDomain.CurrentDomain.BaseDirectory;
+
             character.name = name;
 
             string serialized = Newtonsoft.Json.JsonConvert.SerializeObject (character);
 
-            await System.IO.File.WriteAllTextAsync (name + ".json", serialized);
+            await System.IO.File.WriteAllTextAsync (base_dir + "/Characters/" + name + ".json", serialized);
 
             RequestOptions opt = new RequestOptions ();
             opt.RetryMode = RetryMode.RetryRatelimit;
@@ -40,6 +42,8 @@ namespace swnbot.Commands {
 
             Attachment attach = Context.Message.Attachments.ToArray()[0];
 
+            string base_dir = AppDomain.CurrentDomain.BaseDirectory;
+
             var client = new RestClient(attach.Url);
             RestRequest request = new RestRequest();
             request.Method = Method.GET;
@@ -54,7 +58,7 @@ namespace swnbot.Commands {
                     System.IO.File.Delete("temp.json");
                     return;
                 }
-                System.IO.File.Copy("temp.json", character.name + ".json");
+                System.IO.File.Copy("temp.json", base_dir + "/Characters/" + character.name + ".json");
                 System.IO.File.Delete("temp.json");
                 await ReplyAsync("Character saved");
             }
