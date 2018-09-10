@@ -28,7 +28,7 @@ namespace swnbot.Classes {
     }
 
     public partial class Armor {
-        public static Armor[] InitArmor () => JsonConvert.DeserializeObject<Armor[]> (System.IO.File.ReadAllText ("armor.json"), Converter.Settings);
+        public static Armor[] InitArmor () => JsonConvert.DeserializeObject<Armor[]> (System.IO.File.ReadAllText ("Data/armor.json"), Converter.Settings);
     }
 
     public static class SerializeArmor {
