@@ -61,26 +61,9 @@ namespace swnbot.Commands
                 return;
             }
 
-            await Context.Channel.SendMessageAsync("",false,ObjToEmbed(armor,"Name"),null);
+            await Context.Channel.SendMessageAsync("",false,helpers.ObjToEmbed(armor,"Name"),null);
         }
 
-        public static Embed ObjToEmbed(object obj, string title_property_name = "")
-        {
-            string[] properties = obj.GetType().GetProperties().Select(e=>e.Name).ToArray();
-            var embed = new EmbedBuilder();
-
-            foreach (var property in properties)
-            {                
-                embed.WithTitle(GetPropValue(obj,title_property_name).ToString());
-                embed.AddInlineField(property,GetPropValue(obj,property));
-            }
-
-            return embed.Build();
-        }
-
-        public static object GetPropValue(object src, string propName)
-        {
-            return src.GetType().GetProperty(propName).GetValue(src, null);
-        }
+        
     }
 }
