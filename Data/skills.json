@@ -1,0 +1,92 @@
+[
+  {
+    "Level": -1,
+    "ID": 1,
+    "Name": "Administer"
+  },
+  {
+    "Level": -1,
+    "ID": 2,
+    "Name": "Connect"
+  },
+  {
+    "Level": -1,
+    "ID": 3,
+    "Name": "Exert"
+  },
+  {
+    "Level": -1,
+    "ID": 4,
+    "Name": "Fix"
+  },
+  {
+    "Level": -1,
+    "ID": 5,
+    "Name": "Heal"
+  },
+  {
+    "Level": -1,
+    "ID": 6,
+    "Name": "Know"
+  },
+  {
+    "Level": -1,
+    "ID": 7,
+    "Name": "Lead"
+  },
+  {
+    "Level": -1,
+    "ID": 8,
+    "Name": "Notice"
+  },
+  {
+    "Level": -1,
+    "ID": 9,
+    "Name": "Perform"
+  },
+  {
+    "Level": -1,
+    "ID": 10,
+    "Name": "Pilot"
+  },
+  {
+    "Level": -1,
+    "ID": 11,
+    "Name": "Program"
+  },
+  {
+    "Level": -1,
+    "ID": 12,
+    "Name": "Punch"
+  },
+  {
+    "Level": -1,
+    "ID": 13,
+    "Name": "Shoot"
+  },
+  {
+    "Level": -1,
+    "ID": 14,
+    "Name": "Sneak"
+  },
+  {
+    "Level": -1,
+    "ID": 16,
+    "Name": "Survive"
+  },
+  {
+    "Level": -1,
+    "ID": 17,
+    "Name": "Talk"
+  },
+  {
+    "Level": -1,
+    "ID": 18,
+    "Name": "Trade"
+  },
+  {
+    "Level": -1,
+    "ID": 19,
+    "Name": "Work"
+  }
+]
