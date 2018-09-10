@@ -27,7 +27,7 @@ namespace swnbot {
 
         public async Task RunBotAsync () {
 
-            string file = "secrets.json";
+            string file = "swnbot.json";
 
             Dictionary<string, string> secrets = JsonConvert.DeserializeObject<Dictionary<string, string>> (System.IO.File.ReadAllText (file));
 
