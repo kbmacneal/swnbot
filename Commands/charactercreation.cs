@@ -49,7 +49,11 @@ namespace swnbot.Commands {
             try
             {
                 character character = JsonConvert.DeserializeObject<character>(System.IO.File.ReadAllText("temp.json"));
-                if(character == null)return;
+                if(character == null)
+                {
+                    System.IO.File.Delete("temp.json");
+                    return;
+                }
                 System.IO.File.Copy("temp.json", character.name + ".json");
                 System.IO.File.Delete("temp.json");
                 await ReplyAsync("Character saved");
