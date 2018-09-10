@@ -22,9 +22,9 @@ namespace swnbot.Classes {
         public string name { get; set; }
         public string xp { get; set; }
         public Classes.Class Class { get; set; }
-        public Classes.Background Background { get; set; }
-        public Classes.Gender Gender { get; set; }
-        public List<Classes.skills> skills { get; set; }
+        public string Background { get; set; }
+        public string Gender { get; set; }
+        public List<Classes.skills> skills { get; set; } = Skill.InitSkills().ToList();
         public string Faction { get; set; }
         public string Homeworld { get; set; }
         public int cur_hp { get; set; }

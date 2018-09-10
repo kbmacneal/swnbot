@@ -24,14 +24,18 @@ namespace swnbot.Commands {
 
             character.name = name;
 
+            character.insert_character(character);
+
             string serialized = Newtonsoft.Json.JsonConvert.SerializeObject (character);
 
-            await System.IO.File.WriteAllTextAsync (base_dir + "/Characters/" + name + ".json", serialized);
+            await System.IO.File.WriteAllTextAsync (name + ".json", serialized);
 
             RequestOptions opt = new RequestOptions ();
             opt.RetryMode = RetryMode.RetryRatelimit;
 
             await Context.Channel.SendFileAsync (name + ".json", "Here is your character sheet in json format. You will need to use the sb!uploadcharacter command to perform bulk updates.", false, opt);
+
+            System.IO.File.Delete (name + ".json");
 
         }
 
@@ -41,8 +45,6 @@ namespace swnbot.Commands {
             if(Context.Message.Attachments.Count == 0)await ReplyAsync("You must attach your json file in order to bulk upload a character");
 
             Attachment attach = Context.Message.Attachments.ToArray()[0];
-
-            string base_dir = AppDomain.CurrentDomain.BaseDirectory;
 
             var client = new RestClient(attach.Url);
             RestRequest request = new RestRequest();
@@ -58,7 +60,9 @@ namespace swnbot.Commands {
                     System.IO.File.Delete("temp.json");
                     return;
                 }
-                System.IO.File.Copy("temp.json", base_dir + "/Characters/" + character.name + ".json");
+                
+                character.update_character(character);
+                
                 System.IO.File.Delete("temp.json");
                 await ReplyAsync("Character saved");
             }

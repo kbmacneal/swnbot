@@ -9,16 +9,17 @@ namespace swnbot.Classes {
     public class skills
 
     {
-        [JsonProperty ("ID")]
-        public long Id { get; set; }
+        
         [JsonProperty ("Level")]
         public long Level { get; set; }
+        [JsonProperty ("ID")]
+        public long Id { get; set; }
         [JsonProperty ("Name")]
         public string Name { get; set; }
     }
 
     public partial class Skill {
-        public static Skill[] InitSkills () => JsonConvert.DeserializeObject<Skill[]> (System.IO.File.ReadAllText("skills.json"), Converter.Settings);
+        public static skills[] InitSkills () => JsonConvert.DeserializeObject<skills[]> (System.IO.File.ReadAllText("skills.json"), Converter.Settings);
     }
 
     public static class Serialize {
