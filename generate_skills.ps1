@@ -5,6 +5,8 @@ class skill {
     
 }
 
+Remove-Item ./skills.json
+
 $collection = New-Object System.Collections.ArrayList
 
 $new = New-Object -TypeName skill -Property @{

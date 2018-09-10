@@ -7,6 +7,8 @@ class armor {
     [int]$tech_level
 }
 
+Remove-Item ./armor.json
+
 $collection = New-Object System.Collections.ArrayList
 
 $new = New-Object -TypeName armor -Property @{
