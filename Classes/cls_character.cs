@@ -43,12 +43,20 @@ namespace swnbot.Classes {
         public int wisdom { get; set; }
         public int charisma { get; set; }
         public int creds { get; set; }
+        public int armor {get;set;} = -1;
 
         public static character get_character (int id) {
             var store = new DataStore ("character.json");
 
             // Get employee collection
             return store.GetCollection<character> ().AsQueryable ().FirstOrDefault (e => e.ID == id);
+        }
+
+        public static character get_character (string name) {
+            var store = new DataStore ("character.json");
+
+            // Get employee collection
+            return store.GetCollection<character> ().AsQueryable ().FirstOrDefault (e => e.name == name);
         }
 
         public static void insert_character (character character) {

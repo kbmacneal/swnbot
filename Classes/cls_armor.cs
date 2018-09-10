@@ -15,7 +15,7 @@ namespace swnbot.Classes {
         public string Name { get; set; }
 
         [JsonProperty ("ac")]
-        public long Ac { get; set; }
+        public int Ac { get; set; }
 
         [JsonProperty ("cost")]
         public long Cost { get; set; }
