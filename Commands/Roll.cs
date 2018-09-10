@@ -13,7 +13,7 @@ using Newtonsoft.Json;
 using swnbot.Classes;
 using System.Text.RegularExpressions;
 
-namespace swnbot.Roll
+namespace swnbot.Commands
 {
 
     public class roller : ModuleBase<SocketCommandContext>
