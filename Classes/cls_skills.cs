@@ -9,12 +9,10 @@ namespace swnbot.Classes {
     public class skills
 
     {
-        [JsonProperty ("Level")]
-        public long Level { get; set; }
-
         [JsonProperty ("ID")]
         public long Id { get; set; }
-
+        [JsonProperty ("Level")]
+        public long Level { get; set; }
         [JsonProperty ("Name")]
         public string Name { get; set; }
     }
