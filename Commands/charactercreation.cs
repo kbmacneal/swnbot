@@ -69,6 +69,7 @@ namespace swnbot.Commands
             }
             catch (System.Exception ex)
             {
+                Console.WriteLine(ex.Message);
                 await ReplyAsync("The file submitted was not in the correct specification. Please see an admin");
                 System.IO.File.Delete("temp.json");
             }
