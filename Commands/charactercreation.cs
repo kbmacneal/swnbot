@@ -18,9 +18,9 @@ namespace swnbot.Commands {
     public class charactercreation : ModuleBase<SocketCommandContext> {
         [Command ("newcharacter")]
         public async Task NewcharacterAsync (string name) {
-            Classes.character character = new character ();
-
-            character.name = name;
+            Classes.character character = new character {
+                        name = name
+                    };
 
             character.insert_character(character);
 
@@ -28,8 +28,9 @@ namespace swnbot.Commands {
 
             await System.IO.File.WriteAllTextAsync (name + ".json", serialized);
 
-            RequestOptions opt = new RequestOptions ();
-            opt.RetryMode = RetryMode.RetryRatelimit;
+            RequestOptions opt = new RequestOptions {
+                RetryMode = RetryMode.RetryRatelimit
+            };
 
             Context.Channel.SendFileAsync (name + ".json", "Here is your character sheet in json format. You will need to use the sb!uploadcharacter command to perform bulk updates.", false, opt).GetAwaiter().GetResult();
 
@@ -43,8 +44,7 @@ namespace swnbot.Commands {
             Attachment attach = Context.Message.Attachments.ToArray()[0];
 
             var client = new RestClient(attach.Url);
-            RestRequest request = new RestRequest();
-            request.Method = Method.GET;
+            RestRequest request = new RestRequest{Method = Method.GET};
             byte[] response = client.DownloadData(request);
             System.IO.File.WriteAllBytes("temp.json",response);
             
@@ -66,7 +66,6 @@ namespace swnbot.Commands {
             {
                 await ReplyAsync("The file submitted was not in the correct specification. Please see an admin");
                 System.IO.File.Delete("temp.json");
-                throw ex;
             }   
         
             

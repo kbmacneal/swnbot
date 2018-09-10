@@ -44,14 +44,14 @@ namespace swnbot.Classes {
         public int charisma { get; set; }
         public int creds { get; set; }
 
-        public character get_character (int id) {
+        public static character get_character (int id) {
             var store = new DataStore ("character.json");
 
             // Get employee collection
             return store.GetCollection<character> ().AsQueryable ().FirstOrDefault (e => e.ID == id);
         }
 
-        public void insert_character (character character) {
+        public static void insert_character (character character) {
             var store = new DataStore ("character.json");
 
             // Get employee collection
@@ -60,14 +60,14 @@ namespace swnbot.Classes {
             store.Dispose();
         }
 
-        public void update_character (character character) {
+        public static void update_character (character character) {
             var store = new DataStore ("character.json");
 
             store.GetCollection<character> ().UpdateOne (e => e.ID == character.ID, character);
             store.Dispose();
         }
 
-        public void delete_character (character character) {
+        public static void delete_character (character character) {
             var store = new DataStore ("character.json");
 
             store.GetCollection<character> ().DeleteOne (e => e.ID == character.ID);

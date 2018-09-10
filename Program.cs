@@ -15,7 +15,7 @@ using swnbot.Classes;
 
 namespace swnbot {
     internal class Program {
-        private static void Main (string[] args) => new Program ().RunBotAsync ().GetAwaiter ().GetResult ();
+        private static void Main () => new Program ().RunBotAsync ().GetAwaiter ().GetResult ();
         public static Random rand = new Random();
 
         private DiscordSocketClient _client;
@@ -47,7 +47,7 @@ namespace swnbot {
             await Task.Delay (-1);
         }
 
-        private Task Log (LogMessage arg) {
+        private static Task Log (LogMessage arg) {
             Console.WriteLine (arg);
             return Task.CompletedTask;
         }
