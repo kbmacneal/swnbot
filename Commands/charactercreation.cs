@@ -20,8 +20,6 @@ namespace swnbot.Commands {
         public async Task NewcharacterAsync (string name) {
             Classes.character character = new character ();
 
-            string base_dir = AppDomain.CurrentDomain.BaseDirectory;
-
             character.name = name;
 
             character.insert_character(character);
@@ -33,9 +31,7 @@ namespace swnbot.Commands {
             RequestOptions opt = new RequestOptions ();
             opt.RetryMode = RetryMode.RetryRatelimit;
 
-            await Context.Channel.SendFileAsync (name + ".json", "Here is your character sheet in json format. You will need to use the sb!uploadcharacter command to perform bulk updates.", false, opt);
-
-            System.IO.File.Delete (name + ".json");
+            Context.Channel.SendFileAsync (name + ".json", "Here is your character sheet in json format. You will need to use the sb!uploadcharacter command to perform bulk updates.", false, opt).GetAwaiter().GetResult();
 
         }
 
