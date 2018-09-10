@@ -49,5 +49,38 @@ namespace swnbot.Commands
         {
             await Context.Channel.SendFileAsync("armor.json",null,false,null);
         }
+
+        [Command("displayarmor")]
+        public async Task DisplayarmorAsync(int ID)
+        {
+            Classes.Armor armor = Classes.Armor.InitArmor().ToList().FirstOrDefault(e=>e.Id == ID);
+
+            if(armor == null)
+            {
+                await ReplyAsync("Selection Invalid.");
+                return;
+            }
+
+            await Context.Channel.SendMessageAsync("",false,ObjToEmbed(armor,"Name"),null);
+        }
+
+        public static Embed ObjToEmbed(object obj, string title_property_name = "")
+        {
+            string[] properties = obj.GetType().GetProperties().Select(e=>e.Name).ToArray();
+            var embed = new EmbedBuilder();
+
+            foreach (var property in properties)
+            {                
+                embed.WithTitle(GetPropValue(obj,title_property_name).ToString());
+                embed.AddInlineField(property,GetPropValue(obj,property));
+            }
+
+            return embed.Build();
+        }
+
+        public static object GetPropValue(object src, string propName)
+        {
+            return src.GetType().GetProperty(propName).GetValue(src, null);
+        }
     }
 }
