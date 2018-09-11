@@ -16,30 +16,29 @@ using swnbot.Classes.Utilities;
 
 namespace swnbot.Commands
 {
-
-    public class RollDamage
-    {
-        public string Roll { get; set; }
-        public int OptionalMod { get; set; }
-        public int DexMod { get; set; }
-        public string DiceResults { get; set; }
-        public int Result { get; set; }
-
-    }
-
-    public class RollToHit
-    {
-        public string Roll { get; set; }
-        public int AttackBonus { get; set; }
-        public int StatModifier { get; set; }
-        public int SkillModifier { get; set; }
-        public string DiceResults { get; set; }
-        public int Result { get; set; }
-
-    }
-
     public class RangedWeapons : ModuleBase<SocketCommandContext>
     {
+        private class RollDamage
+        {
+            public string Roll { get; set; }
+            public int OptionalMod { get; set; }
+            public int DexMod { get; set; }
+            public string DiceResults { get; set; }
+            public int Result { get; set; }
+
+        }
+
+        private class RollToHit
+        {
+            public string Roll { get; set; }
+            public int AttackBonus { get; set; }
+            public int StatModifier { get; set; }
+            public int SkillModifier { get; set; }
+            public string DiceResults { get; set; }
+            public int Result { get; set; }
+
+        }
+
         [Command("rolldamage")]
         private async Task RolldamageAsync(string weapon, int optional_mod = 0)
         {
@@ -111,15 +110,3 @@ namespace swnbot.Commands
     }
 
 }
-
-// To make an attack roll, the assailant rolls 1d20 and
-// adds their attack bonus, their applicable skill level, and
-// the attribute modifier most relevant to the weapon.
-// If the total is equal or higher than the target’s Armor
-// Class, the attack is successful.
-// A PC’s attack bonus is usually equal to half their
-// character level, rounded down. Characters with the
-// Warrior class or an Adventurer with the Partial War-
-// rior class option have higher base attack bonuses. NPCs
-// have their own attack bonus listed with their statistics,
-// which includes any modifiers they might have.
