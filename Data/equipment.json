@@ -30,7 +30,7 @@
   {
     "Name": "Glowbug",
     "Cost": "5",
-    "Encumbrance": "*",
+    "Encumbrance": "0",
     "TechLevel": "3",
     "Id": 5
   },
@@ -45,7 +45,7 @@
     "Name": "Grav chute",
     "Cost": "300/1,000",
     "Encumbrance": "1",
-    "TechLevel": "0.8",
+    "TechLevel": "4/5",
     "Id": 7
   },
   {
@@ -58,7 +58,7 @@
   {
     "Name": "Instapanel",
     "Cost": "50",
-    "Encumbrance": "1#",
+    "Encumbrance": "1",
     "TechLevel": "4",
     "Id": 9
   },
@@ -93,7 +93,7 @@
   {
     "Name": "Rations, 1 day",
     "Cost": "5",
-    "Encumbrance": "1#",
+    "Encumbrance": "1",
     "TechLevel": "1",
     "Id": 14
   },
@@ -107,7 +107,7 @@
   {
     "Name": "Scout report",
     "Cost": "200",
-    "Encumbrance": "*",
+    "Encumbrance": "0",
     "TechLevel": "4",
     "Id": 16
   },
@@ -128,28 +128,28 @@
   {
     "Name": "Telescoping pole",
     "Cost": "10",
-    "Encumbrance": "*",
+    "Encumbrance": "0",
     "TechLevel": "4",
     "Id": 19
   },
   {
     "Name": "Thermal flare",
     "Cost": "5",
-    "Encumbrance": "*",
+    "Encumbrance": "0",
     "TechLevel": "3",
     "Id": 20
   },
   {
     "Name": "Trade goods",
     "Cost": "50",
-    "Encumbrance": "1#",
+    "Encumbrance": "1",
     "TechLevel": "4",
     "Id": 21
   },
   {
     "Name": "Trade metals",
     "Cost": "10",
-    "Encumbrance": "1#",
+    "Encumbrance": "1",
     "TechLevel": "4",
     "Id": 22
   },
@@ -177,63 +177,63 @@
   {
     "Name": "Bezoar",
     "Cost": "200",
-    "Encumbrance": "*",
+    "Encumbrance": "0",
     "TechLevel": "4",
     "Id": 26
   },
   {
     "Name": "Brainwave",
     "Cost": "1000",
-    "Encumbrance": "*",
+    "Encumbrance": "0",
     "TechLevel": "5",
     "Id": 27
   },
   {
     "Name": "Hush",
     "Cost": "200",
-    "Encumbrance": "*",
+    "Encumbrance": "0",
     "TechLevel": "4",
     "Id": 28
   },
   {
     "Name": "Lift",
     "Cost": "50",
-    "Encumbrance": "*",
+    "Encumbrance": "0",
     "TechLevel": "4",
     "Id": 29
   },
   {
     "Name": "Psych",
     "Cost": "25",
-    "Encumbrance": "*",
+    "Encumbrance": "0",
     "TechLevel": "4",
     "Id": 30
   },
   {
     "Name": "Pretech Cosmetic",
     "Cost": "1000",
-    "Encumbrance": "*",
+    "Encumbrance": "0",
     "TechLevel": "5",
     "Id": 31
   },
   {
     "Name": "Reverie",
     "Cost": "100",
-    "Encumbrance": "*",
+    "Encumbrance": "0",
     "TechLevel": "4",
     "Id": 32
   },
   {
     "Name": "Squeal",
     "Cost": "300",
-    "Encumbrance": "*",
+    "Encumbrance": "0",
     "TechLevel": "4",
     "Id": 33
   },
   {
     "Name": "Tsunami",
     "Cost": "50",
-    "Encumbrance": "*",
+    "Encumbrance": "0",
     "TechLevel": "4",
     "Id": 34
   },
@@ -247,7 +247,7 @@
   {
     "Name": "Lazarus patch",
     "Cost": "30",
-    "Encumbrance": "1#",
+    "Encumbrance": "1",
     "TechLevel": "4",
     "Id": 36
   },
@@ -268,14 +268,14 @@
   {
     "Name": "Spare parts",
     "Cost": "50",
-    "Encumbrance": "1#",
+    "Encumbrance": "1",
     "TechLevel": "4",
     "Id": 39
   },
   {
     "Name": "Tailored antiallergens",
     "Cost": "5",
-    "Encumbrance": "*",
+    "Encumbrance": "0",
     "TechLevel": "4",
     "Id": 40
   },
@@ -289,7 +289,7 @@
   {
     "Name": "Ammo, 20 rounds",
     "Cost": "10",
-    "Encumbrance": "1#",
+    "Encumbrance": "1",
     "TechLevel": "2",
     "Id": 42
   },
@@ -303,7 +303,7 @@
   {
     "Name": "Power cell, type A",
     "Cost": "10",
-    "Encumbrance": "1#",
+    "Encumbrance": "1",
     "TechLevel": "4",
     "Id": 44
   },
@@ -338,7 +338,7 @@
   {
     "Name": "Compad",
     "Cost": "100",
-    "Encumbrance": "*",
+    "Encumbrance": "0",
     "TechLevel": "4",
     "Id": 49
   },
@@ -352,7 +352,7 @@
   {
     "Name": "Translator torc",
     "Cost": "200",
-    "Encumbrance": "*",
+    "Encumbrance": "0",
     "TechLevel": "4",
     "Id": 51
   },
@@ -373,7 +373,7 @@
   {
     "Name": "Data protocol",
     "Cost": "1000",
-    "Encumbrance": "*",
+    "Encumbrance": "0",
     "TechLevel": "4",
     "Id": 54
   },
@@ -387,7 +387,7 @@
   {
     "Name": "Line shunt",
     "Cost": "100",
-    "Encumbrance": "*",
+    "Encumbrance": "0",
     "TechLevel": "4",
     "Id": 56
   },
