@@ -111,7 +111,7 @@
   },
   {
     "Name": "Submachine Gun",
-    "Damage": "1d8*",
+    "Damage": "1d8",
     "Range": "30/100",
     "Cost": "200",
     "Magazine": "20",
@@ -122,7 +122,7 @@
   },
   {
     "Name": "Combat Rifle",
-    "Damage": "1d12*",
+    "Damage": "1d12",
     "Range": "100/300",
     "Cost": "300",
     "Magazine": "30",
@@ -133,7 +133,7 @@
   },
   {
     "Name": "Combat Shotgun",
-    "Damage": "3d4*",
+    "Damage": "3d4",
     "Range": "10/30",
     "Cost": "300",
     "Magazine": "12",
@@ -188,7 +188,7 @@
   },
   {
     "Name": "Spike Thrower",
-    "Damage": "3d8*",
+    "Damage": "3d8",
     "Range": "20/40",
     "Cost": "600",
     "Magazine": "15",
@@ -210,7 +210,7 @@
   },
   {
     "Name": "Laser Rifle",
-    "Damage": "1d10*",
+    "Damage": "1d10",
     "Range": "300/500",
     "Cost": "300",
     "Magazine": "20",
@@ -243,7 +243,7 @@
   },
   {
     "Name": "Shear Rifle",
-    "Damage": "2d8*",
+    "Damage": "2d8",
     "Range": "100/300",
     "Cost": "600",
     "Magazine": "10",
