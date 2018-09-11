@@ -29,7 +29,7 @@ namespace swnbot.Commands
                 await ReplyAsync("Character not found. Please create one before proceeding.");
                 return;
             }
-            Classes.Armor selection = Classes.Armor.InitArmor().ToList().FirstOrDefault(e => e.Id == armor_id);
+            Classes.Armor selection = Classes.Armor.InitArmor(System.IO.File.ReadAllText("Data/armor.json")).ToList().FirstOrDefault(e => e.Id == armor_id);
 
             if (selection == null)
             {
@@ -53,7 +53,7 @@ namespace swnbot.Commands
         [Command("displayarmor")]
         public async Task DisplayarmorAsync(int ID)
         {
-            Classes.Armor armor = Classes.Armor.InitArmor().ToList().FirstOrDefault(e=>e.Id == ID);
+            Classes.Armor armor = Classes.Armor.InitArmor(System.IO.File.ReadAllText("Data/armor.json")).ToList().FirstOrDefault(e=>e.Id == ID);
 
             if(armor == null)
             {
