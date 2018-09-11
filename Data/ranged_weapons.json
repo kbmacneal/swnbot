@@ -35,7 +35,7 @@
   {
     "Name": "Grenade",
     "Damage": "2d6",
-    "Range": "30-Oct",
+    "Range": "10/30",
     "Cost": "25",
     "Magazine": "0",
     "Attribute": "Dexterity",
@@ -46,7 +46,7 @@
   {
     "Name": "Crude Pistol",
     "Damage": "1d6",
-    "Range": "15-May",
+    "Range": "5/15",
     "Cost": "20",
     "Magazine": "1",
     "Attribute": "Dexterity",
@@ -90,7 +90,7 @@
   {
     "Name": "Shotgun",
     "Damage": "3d4",
-    "Range": "30-Oct",
+    "Range": "10/30",
     "Cost": "50",
     "Magazine": "2",
     "Attribute": "Dexterity",
@@ -134,7 +134,7 @@
   {
     "Name": "Combat Shotgun",
     "Damage": "3d4*",
-    "Range": "30-Oct",
+    "Range": "10/30",
     "Cost": "300",
     "Magazine": "12",
     "Attribute": "Dexterity",
