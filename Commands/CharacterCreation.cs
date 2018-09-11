@@ -16,7 +16,7 @@ using swnbot.Classes;
 
 namespace swnbot.Commands
 {
-    public class charactercreation : ModuleBase<SocketCommandContext>
+    public class CharacterCreation : ModuleBase<SocketCommandContext>
     {
         [Command("newcharacter")]
         public async Task NewcharacterAsync(string name)
