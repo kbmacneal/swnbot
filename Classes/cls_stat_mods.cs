@@ -30,7 +30,7 @@ namespace swnbot.Classes
             {
                 if(i<=3)
                 {
-                    stat_mod mod = new stat_mod(){
+                    stat_mod mod = new stat_mod{
                         value=i,
                         mod = -2
                     };
@@ -39,7 +39,7 @@ namespace swnbot.Classes
 
                 if(i>=4&&i<=7)
                 {
-                    stat_mod mod = new stat_mod(){
+                    stat_mod mod = new stat_mod{
                         value=i,
                         mod = -1
                     };
@@ -49,7 +49,7 @@ namespace swnbot.Classes
 
                 if(i>=8&&i<=13)
                 {
-                    stat_mod mod = new stat_mod(){
+                    stat_mod mod = new stat_mod{
                         value=i,
                         mod = 0
                     };
@@ -58,7 +58,7 @@ namespace swnbot.Classes
                 
                 if(i>=14&&i<=17)
                 {
-                    stat_mod mod = new stat_mod(){
+                    stat_mod mod = new stat_mod{
                         value=i,
                         mod = 1
                     };
@@ -67,7 +67,7 @@ namespace swnbot.Classes
                 
                 if(i==18)
                 {
-                    stat_mod mod = new stat_mod(){
+                    stat_mod mod = new stat_mod{
                         value=i,
                         mod = 2
                     };
