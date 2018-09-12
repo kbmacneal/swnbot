@@ -32,6 +32,12 @@ namespace swnbot.Commands
             await ReplyAsync(rtn_name + " rolled a " + dice_results.Sum() + " (" + string.Join(", ", dice_results) + ")");
 
         }
+
+        public static List<int> RollKeeps(string base_roll, int keep_int)
+        {            
+            return Roll(base_roll).OrderBy(x=>x).Take(keep_int).ToList();
+        }
+        
         public static List<int> Roll(string roll)
         {
             List<int> dice_results = new List<int>();
