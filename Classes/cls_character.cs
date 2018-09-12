@@ -37,12 +37,12 @@ namespace swnbot.Classes {
         public int xp_til_next { get; set; }
         public int ac { get; set; }
         public int atk_bonus { get; set; }
-        public int strength { get; set; }
-        public int dexterity { get; set; }
-        public int constitution { get; set; }
-        public int intelligence { get; set; }
-        public int wisdom { get; set; }
-        public int charisma { get; set; }
+        public int strength { get; set; } //Paramter 'str' when passed in by user?
+        public int dexterity { get; set; } //Parameter 'dex' when passed in by user?
+        public int constitution { get; set; } //Parameter 'con' when passed in by user?
+        public int intelligence { get; set; } //Parameter 'int' when passed in by user?
+        public int wisdom { get; set; } //Parameter 'wis' when passed in by user?
+        public int charisma { get; set; } //Parameter 'cha' when passed in by user?
         public int creds { get; set; }
         public int armor {get;set;} = -1;
 
@@ -89,6 +89,29 @@ namespace swnbot.Classes {
             store.GetCollection<character> ().DeleteOne (e => e.ID == character.ID);
             store.Dispose();
         }
+
+        public string skill_roll(string skillname, string stat, int optional_mod = 0) {
+            int totalMod = mod; //Helping Modifier
+            string dieRoll = "";
+
+            totalMod += 0; stat_mod.mod_from_stat_val(Classes.helpers.GetPropValue(this,short_to_long[stat]));
+
+            skill s = character.skills.First(e=>e.name == skillname);
+            totalMod += s.Level;
+            dieRoll += (2+s.Specialist).toString() + "d6k2+" + totalMod.toString();
+
+            return dieRoll; //This roll should be what needs to be executed by the system (2-4)d6k2+totalMod
+        }
+
+        private static readonly Dictionary<string, string> short_to_long = new Dictionary<string, string> {
+            { "str", "strength" },
+            { "dex", "dexerity" },
+            { "con", "constitution"},
+            { "int", "inteligence"},
+            { "wis", "wisdom"},
+            { "cha", "charism"}
+        };
+
     }
 
 }

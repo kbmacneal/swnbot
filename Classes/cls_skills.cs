@@ -16,6 +16,8 @@ namespace swnbot.Classes {
         public long Id { get; set; }
         [JsonProperty ("Name")]
         public string Name { get; set; }
+        [JsonProperty ("Specialist")]
+        public int Specialist { get; set; }
     }
 
     public partial class Skill {
