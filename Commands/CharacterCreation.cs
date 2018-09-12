@@ -26,6 +26,8 @@ namespace swnbot.Commands
                 name = name
             };
 
+            character.player_discord_id = Context.Message.Author.Id;
+
             character.insert_character(character);
 
             string serialized = Newtonsoft.Json.JsonConvert.SerializeObject(character);

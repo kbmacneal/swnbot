@@ -19,6 +19,7 @@ namespace swnbot.Classes {
 
     public class character {
         public int ID { get; set; }
+        public ulong player_discord_id { get; set; }
         public string name { get; set; }
         public string xp { get; set; }
         public Classes.Class Class { get; set; }
@@ -57,6 +58,13 @@ namespace swnbot.Classes {
 
             // Get employee collection
             return store.GetCollection<character> ().AsQueryable ().FirstOrDefault (e => e.name == name);
+        }
+
+        public static character get_character (ulong player_id) {
+            var store = new DataStore ("character.json");
+
+            // Get employee collection
+            return store.GetCollection<character> ().AsQueryable ().FirstOrDefault (e => e.player_discord_id == player_id);
         }
 
         public static void insert_character (character character) {

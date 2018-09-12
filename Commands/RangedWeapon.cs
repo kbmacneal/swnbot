@@ -45,7 +45,7 @@ namespace swnbot.Commands
             int modifier = 0;
             RollDamage rd = new RollDamage();
             SocketGuildUser usr = Context.Guild.GetUser(Context.Message.Author.Id);
-            character character = Classes.character.get_character(usr.Nickname);
+            character character = Classes.character.get_character(Context.Message.Author.Id);
 
             string title = character.name + "rolls damage";
             if (character == null)
@@ -83,7 +83,7 @@ namespace swnbot.Commands
             int modifier = 0;
             RollToHit rh = new RollToHit();
             SocketGuildUser usr = Context.Guild.GetUser(Context.Message.Author.Id);
-            character character = Classes.character.get_character(usr.Nickname);
+            character character = Classes.character.get_character(Context.Message.Author.Id);
 
             string title = character.name + "rolls to hit";
             if (character == null)

@@ -22,7 +22,7 @@ namespace swnbot.Commands
         public async Task ChangearmorAsync(int armor_id)
         {
             SocketGuildUser usr = Context.Guild.GetUser(Context.Message.Author.Id);
-            character character = character.get_character(usr.Nickname);
+            character character = character.get_character(Context.Message.Author.Id);
 
             if (character == null)
             {
