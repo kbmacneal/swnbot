@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Collections;
+using System.Linq;
 
 namespace swnbot.Classes
 
@@ -8,6 +9,18 @@ namespace swnbot.Classes
     {
         public int value {get;set;}
         public int mod {get;set;}
+
+        public static int mod_from_stat_val(int stat_val)
+        {
+            int rtn = 0;
+
+            List<stat_mod> mods = gen_mods();
+
+            rtn = mods.FirstOrDefault(e=>e.value == stat_val).mod;
+
+
+            return rtn;
+        }
 
         public static List<stat_mod> gen_mods()
         {

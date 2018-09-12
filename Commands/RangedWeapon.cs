@@ -54,8 +54,8 @@ namespace swnbot.Commands
                 return;
             }
 
-            modifier += character.dexterity;
-            rd.DexMod = character.dexterity;
+            modifier += stat_mod.mod_from_stat_val(character.dexterity);
+            rd.DexMod = stat_mod.mod_from_stat_val(character.dexterity);
 
             List<int> rolls = new List<int>();
 
@@ -94,8 +94,8 @@ namespace swnbot.Commands
 
             modifier += character.atk_bonus;
             rh.AttackBonus = character.atk_bonus;
-            modifier += character.dexterity;
-            rh.StatModifier = character.dexterity;
+            modifier += stat_mod.mod_from_stat_val(character.dexterity);
+            rh.StatModifier = stat_mod.mod_from_stat_val(character.dexterity);
             modifier += (int)character.skills.First(e => e.Name == "Shoot").Level;
             rh.SkillModifier = (int)character.skills.First(e => e.Name == "Shoot").Level;
 
