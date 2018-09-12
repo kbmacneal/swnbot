@@ -11,9 +11,9 @@ namespace swnbot.Classes {
     {
         
         [JsonProperty ("Level")]
-        public long Level { get; set; }
+        public int Level { get; set; }
         [JsonProperty ("ID")]
-        public long Id { get; set; }
+        public int Id { get; set; }
         [JsonProperty ("Name")]
         public string Name { get; set; }
         [JsonProperty ("Specialist")]

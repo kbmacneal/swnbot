@@ -91,16 +91,20 @@ namespace swnbot.Classes {
         }
 
         public string skill_roll(string skillname, string stat, int optional_mod = 0) {
-            int totalMod = mod; //Helping Modifier
+            int totalMod = optional_mod;
+
             string dieRoll = "";
+            
+            totalMod += stat_mod.mod_from_stat_val((int)Classes.helpers.GetPropValue(this,short_to_long[stat.ToLower()]));
 
-            totalMod += 0; stat_mod.mod_from_stat_val(Classes.helpers.GetPropValue(this,short_to_long[stat]));
+            Classes.skills s = this.skills.First(e=>e.Name == skillname);
 
-            skill s = character.skills.First(e=>e.name == skillname);
             totalMod += s.Level;
-            dieRoll += (2+s.Specialist).toString() + "d6k2+" + totalMod.toString();
 
-            return dieRoll; //This roll should be what needs to be executed by the system (2-4)d6k2+totalMod
+
+            dieRoll += (2+s.Specialist).ToString() + "d6k2+" + totalMod.ToString();
+
+            return dieRoll;
         }
 
         private static readonly Dictionary<string, string> short_to_long = new Dictionary<string, string> {
