@@ -37,7 +37,7 @@ namespace swnbot.Commands
             List<int> dice_results = new List<int>();
 
             DiceBag db = new DiceBag();
-
+            char[] dice_splits = {'d','D'};
             if (roll.Contains('-') || roll.Contains('+'))
             {
                 char[] splits = new char[] { '+', '-' };
@@ -51,7 +51,7 @@ namespace swnbot.Commands
                 {
                     mod = Convert.ToInt32(two_parts[1]);
                 }
-                string[] parameters = two_parts[0].Split('d');
+                string[] parameters = two_parts[0].Split(dice_splits);
                 uint num_dice = 1;
                 int dice_sides = 2;
 
@@ -73,7 +73,7 @@ namespace swnbot.Commands
             }
             else
             {
-                string[] parameters = roll.Split('d');
+                string[] parameters = roll.Split(dice_splits);
                 uint num_dice = 1;
                 int dice_sides = 2;
 
