@@ -75,9 +75,19 @@ namespace swnbot.Commands
                 await ReplyAsync("The file submitted was not in the correct specification. Please see an admin");
                 System.IO.File.Delete("temp.json");
             }
+        }
+        [Command("deletecharacter")]
+        [RequireUserPermission(GuildPermission.Administrator)]
+        public async Task DeletecharacterAsync(string name)
+        {
+            Classes.character character = character.get_character(name);
 
-
+            Classes.character.delete_character(character);
+            
+            await ReplyAsync("Character Deleted.");
 
         }
+
+
     }
 }
