@@ -50,6 +50,43 @@ namespace swnbot.Commands
 
             await ReplyAsync("Skill Updated.");
         }
+
+        [Command("specialist")]
+        private async Task SpecialistskillAsync(string skill_name, int mod)
+        {
+            SocketGuildUser usr = Context.Guild.GetUser(Context.Message.Author.Id);
+
+            character character = character.get_character(Context.Message.Author.Id);
+            if(character == null)
+            {
+                await ReplyAsync("Create a character first.");
+                return;
+            }
+
+            if (mod > 2 || mod < 0) { 
+                await ReplyAsync("Invalid Mod. Enter 1 or 2");
+                return;
+            }
+
+            var skill = character.skills.FirstOrDefault(e=>e.Name == skill_name);
+            if(skill == null)
+            {
+                await ReplyAsync("Skill invalid");
+                return;
+            }
+
+            foreach (var item in character.skills)
+            {
+                if(item.Name == skill_name)
+                {
+                    item.Specialist = mod;
+                }
+            }
+
+            Classes.character.update_character(character);
+
+            await ReplyAsync("Skill Updated.");
+        }
     }
 
 }

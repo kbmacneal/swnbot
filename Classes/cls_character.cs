@@ -90,19 +90,12 @@ namespace swnbot.Classes {
             store.Dispose();
         }
 
-        public string skill_roll(string skillname, string stat, int optional_mod = 0) {
+        public string skill_roll(skills skill, string stat, int optional_mod = 0) {
             int totalMod = optional_mod;
-
             string dieRoll = "";
             
-            totalMod += stat_mod.mod_from_stat_val((int)Classes.helpers.GetPropValue(this,short_to_long[stat.ToLower()]));
-
-            Classes.skills s = this.skills.First(e=>e.Name == skillname);
-
-            totalMod += s.Level;
-
-
-            dieRoll += (2+s.Specialist).ToString() + "d6k2+" + totalMod.ToString();
+            totalMod += stat_mod.mod_from_stat_val((int)Classes.helpers.GetPropValue(this,stat)) + (int) skill.Level;
+            dieRoll += (2+skill.Specialist).ToString() + "d6+" + totalMod.ToString();
 
             return dieRoll;
         }
