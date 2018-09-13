@@ -16,7 +16,7 @@ using swnbot.Classes.Utilities;
 
 namespace swnbot.Commands
 {
-    public class RangedWeapons : ModuleBase<SocketCommandContext>
+    public class Weapons : ModuleBase<SocketCommandContext>
     {
         private class RollDamage
         {
@@ -59,7 +59,7 @@ namespace swnbot.Commands
 
             List<int> rolls = new List<int>();
 
-            Classes.RangedWeapons weap = Classes.RangedWeapons.FromJson("Data/ranged_weapons.json").FirstOrDefault(e => e.Name == weapon);
+            Classes.Weapon weap = Classes.Weapon.FromJson("Data/weapons.json").FirstOrDefault(e => e.Name == weapon);
 
             if (weap == null)
             {
