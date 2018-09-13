@@ -1,41 +1,41 @@
-namespace swnbot.Classes {
-    public class Class {
-        public string[] classes = new string[] {
-            "Engineer",
-            "Warrior",
-            "Psychic",
-            "Adventurer(Warrior/Psychic)",
-            "Adventurer(Warrior/Engineer)",
-            "Adventurer(Engineer/Psychic)"
-        };
+namespace swnbot.Classes
+{
+
+    public enum CharacterClass
+    {
+        Engineer,
+        Warrior,
+        Psychic
     }
 
-    public class Background {
-        public string[] backgrounds = new string[] {
-            "Barbarian",
-            "Clergy",
-            "Courtesan",
-            "Criminal",
-            "Dilettante",
-            "Entertainer",
-            "Merchant",
-            "Noble",
-            "Official",
-            "Peasant",
-            "Physician",
-            "Pilot or rider",
-            "Politician",
-            "Scholar",
-            "Soldier",
-            "Spacer",
-            "Technician",
-            "Thug/ruffian",
-            "Vagabond",
-            "Worker"
-        };
+    public enum Backgrounds
+    {
+        Barbarian,
+        Clergy,
+        Courtesan,
+        Criminal,
+        Dilettante,
+        Entertainer,
+        Merchant,
+        Noble,
+        Official,
+        Peasant,
+        Physician,
+        Pilot,
+        Politician,
+        Scholar,
+        Soldier,
+        Spacer,
+        Technician,
+        Thug,
+        Vagabond,
+        Worker
     }
 
-    public class Gender {
-        public string[] genders = new string[] { "Male", "Female", "Other" };
+    public enum Gender
+    {
+        Male,
+        Female,
+        Other
     }
 }
