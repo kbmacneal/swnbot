@@ -26,6 +26,7 @@ namespace swnbot.Classes {
         public string Background { get; set; }
         public string Gender { get; set; }
         public List<Classes.skills> skills { get; set; } = Skill.InitSkills(System.IO.File.ReadAllText("Data/skills.json")).ToList();
+        public List<Classes.Foci> foci { get; set; } = Foci.FromJson(System.IO.File.ReadAllText("Data/foci.json")).ToList();
         public string Faction { get; set; }
         public string Homeworld { get; set; }
         public int cur_hp { get; set; }
