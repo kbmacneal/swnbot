@@ -68,8 +68,8 @@ namespace swnbot.Commands
                 int num_die = 2+character.skills.First(e=>e.Name==skill_name).Level;
                 string diceroll = num_die.ToString() + "d6";
                 int modifier = stat_mod.mod_from_stat_val((int)helpers.GetPropValue(character,stat_name)) + mod;
-                int drop = character.skills.First(e=>e.Name==skill_name).Level == 1 ? 1 : 2;
-                dice_results = RollKeeps(diceroll + "+" + modifier.ToString(),drop);
+                
+                dice_results = RollKeeps(diceroll + "+" + modifier.ToString(),2);
             }
             else
             {
