@@ -34,7 +34,7 @@ namespace swnbot.Commands
         }
 
         [Command("skillroll")]
-        private async Task SkillRollAsync(string skill_name, string stat_name, int mod)
+        private async Task SkillRollAsync(string skill_name, string stat_name, int mod = 0)
         {
             SocketGuildUser usr = Context.Guild.GetUser(Context.Message.Author.Id);
             string rtn_name = usr.Nickname == null ? usr.Username : usr.Nickname;
@@ -60,8 +60,24 @@ namespace swnbot.Commands
                 await ReplyAsync("Skill invalid");
                 return;
             }
+
+            List<int> dice_results = new List<int>();
+
+            if(character.foci.First(e=>e.Name=="Specialist").Level > 0)
+            {
+                int num_die = 2+character.foci.First(e=>e.Name=="Specialist").Level;
+                string diceroll = num_die.ToString() + "d6";
+                int drop = character.foci.First(e=>e.Name=="Specialist").Level == 1 ? 1 : 2;
+                dice_results = RollKeeps(diceroll,drop);
+            }
+            else
+            {
+                string diceroll = "2d6+" + (stat_mod.mod_from_stat_val((int)helpers.GetPropValue(character,stat_name)) + mod).ToString();
+
+                dice_results = Roll(diceroll);
+            }
             
-            List<int> dice_results = RollKeeps(character.skill_roll(skill, stat, mod),2);
+            
             await ReplyAsync(rtn_name + " rolled a " + dice_results.Sum() + " (" + string.Join(", ", dice_results) + ")");
         }
 

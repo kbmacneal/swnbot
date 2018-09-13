@@ -91,15 +91,15 @@ namespace swnbot.Classes {
             store.Dispose();
         }
 
-        public string skill_roll(skills skill, string stat, int optional_mod = 0) {
-            int totalMod = optional_mod;
-            string dieRoll = "";
+        // public string determine_skill_roll(skills skill, string stat, int optional_mod = 0) {
+        //     int totalMod = optional_mod;
+        //     string dieRoll = "";
             
-            totalMod += stat_mod.mod_from_stat_val((int)Classes.helpers.GetPropValue(this,stat)) + (int) skill.Level;
-            dieRoll += (2+skill.Specialist).ToString() + "d6+" + totalMod.ToString();
+        //     totalMod += stat_mod.mod_from_stat_val((int)Classes.helpers.GetPropValue(this,stat)) + (int) skill.Level;
+        //     dieRoll += (2+skill.Specialist).ToString() + "d6+" + totalMod.ToString();
 
-            return dieRoll;
-        }
+        //     return dieRoll;
+        // }
 
         private static readonly Dictionary<string, string> short_to_long = new Dictionary<string, string> {
             { "str", "strength" },
