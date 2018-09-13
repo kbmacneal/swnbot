@@ -1,4 +1,4 @@
-namespace swnbot.Classes
+namespace swnbot
 {
 
     public enum CharacterClass

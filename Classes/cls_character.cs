@@ -21,9 +21,9 @@ namespace swnbot.Classes {
         public int ID { get; set; }
         public ulong player_discord_id { get; set; }
         public string name { get; set; }
-        public Classes.CharacterClass[] Class { get; set; }
-        public Classes.Backgrounds Background { get; set; }
-        public Classes.Gender Gender { get; set; }
+        public CharacterClass[] Class { get; set; }
+        public Backgrounds Background { get; set; }
+        public Gender Gender { get; set; }
         public List<Classes.skills> skills { get; set; } = Skill.InitSkills(System.IO.File.ReadAllText("Data/skills.json")).ToList();
         public List<Classes.Foci> foci { get; set; } = Foci.FromJson(System.IO.File.ReadAllText("Data/foci.json")).ToList();
         public string Faction { get; set; }
@@ -89,16 +89,6 @@ namespace swnbot.Classes {
             store.GetCollection<character> ().DeleteOne (e => e.ID == character.ID);
             store.Dispose();
         }
-
-        // public string determine_skill_roll(skills skill, string stat, int optional_mod = 0) {
-        //     int totalMod = optional_mod;
-        //     string dieRoll = "";
-            
-        //     totalMod += stat_mod.mod_from_stat_val((int)Classes.helpers.GetPropValue(this,stat)) + (int) skill.Level;
-        //     dieRoll += (2+skill.Specialist).ToString() + "d6+" + totalMod.ToString();
-
-        //     return dieRoll;
-        // }
 
         private static readonly Dictionary<string, string> short_to_long = new Dictionary<string, string> {
             { "str", "strength" },
