@@ -54,8 +54,8 @@ namespace swnbot.Commands
             }
 
             string stat = "";
-            if(short_to_long.TryGetValue(stat_name.ToLower(), out stat)) {
-
+            if(short_to_long.TryGetValue(stat_name.ToLower(), out stat)) 
+            {
             } else {
                 await ReplyAsync("Skill invalid");
                 return;
@@ -63,9 +63,9 @@ namespace swnbot.Commands
 
             List<int> dice_results = new List<int>();
 
-            if(character.skills.First(e=>e.Name==skill_name).Level > 0)
+            if(character.skills.First(e=>e.Name==skill_name).Specialist > 0)
             {
-                int num_die = 2+character.skills.First(e=>e.Name==skill_name).Level;
+                int num_die = 2+character.skills.First(e=>e.Name==skill_name).Specialist;
                 string diceroll = num_die.ToString() + "d6";
                 int modifier = stat_mod.mod_from_stat_val((int)helpers.GetPropValue(character,stat_name)) + mod;
                 
@@ -82,7 +82,8 @@ namespace swnbot.Commands
             await ReplyAsync(rtn_name + " rolled a " + dice_results.Sum() + " (" + string.Join(", ", dice_results) + ")");
         }
 
-        private static readonly Dictionary<string, string> short_to_long = new Dictionary<string, string> {
+        private static readonly Dictionary<string, string> short_to_long = new Dictionary<string, string> 
+        {
             { "str", "strength" },
             { "dex", "dexerity" },
             { "con", "constitution"},
