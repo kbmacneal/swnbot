@@ -33,6 +33,47 @@ namespace swnbot.Commands
 
         }
 
+        [Command("skillroll")]
+        private async Task SkillRollAsync(string skill_name, string stat_name, int mod)
+        {
+            SocketGuildUser usr = Context.Guild.GetUser(Context.Message.Author.Id);
+            string rtn_name = usr.Nickname == null ? usr.Username : usr.Nickname;
+
+            character character = character.get_character(Context.Message.Author.Id);
+            if(character == null)
+            {
+                await ReplyAsync("Create a character first.");
+                return;
+            }
+
+            var skill = character.skills.FirstOrDefault(e=>e.Name == skill_name);
+            if(skill == null)
+            {
+                await ReplyAsync("Skill invalid");
+                return;
+            }
+
+            string stat = "";
+            if(short_to_long.TryGetValue(stat_name.ToLower(), out stat)) {
+
+            } else {
+                await ReplyAsync("Skill invalid");
+                return;
+            }
+            
+            List<int> dice_results = RollKeeps(character.skill_roll(skill, stat, mod),2);
+            await ReplyAsync(rtn_name + " rolled a " + dice_results.Sum() + " (" + string.Join(", ", dice_results) + ")");
+        }
+
+        private static readonly Dictionary<string, string> short_to_long = new Dictionary<string, string> {
+            { "str", "strength" },
+            { "dex", "dexerity" },
+            { "con", "constitution"},
+            { "int", "inteligence"},
+            { "wis", "wisdom"},
+            { "cha", "charism"}
+        };
+
         public static List<int> RollKeeps(string base_roll, int keep_int)
         {            
             return Roll(base_roll).OrderBy(x=>x).Take(keep_int).ToList();
