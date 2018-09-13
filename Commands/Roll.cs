@@ -65,9 +65,15 @@ namespace swnbot.Commands
 
             if(character.foci.First(e=>e.Name=="Specialist").Level > 0)
             {
+<<<<<<< HEAD
                 int num_die = 2+character.skills.First(e=>e.Name==skill_name).Level;
                 string diceroll = num_die.ToString() + "d6";
                 int drop = character.skills.First(e=>e.Name==skill_name).Level == 1 ? 1 : 2;
+=======
+                int num_die = 2+character.foci.First(e=>e.Name=="Specialist").Level;
+                string diceroll = num_die.ToString() + "d6";
+                int drop = character.foci.First(e=>e.Name=="Specialist").Level == 1 ? 1 : 2;
+>>>>>>> 2af7d12f4aa10594f4f51b5476724a74d747d807
                 dice_results = RollKeeps(diceroll,drop);
             }
             else
