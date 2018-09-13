@@ -16,6 +16,8 @@ namespace swnbot.Classes
 
         [JsonProperty("Level")]
         public int Level { get; set; }
+        [JsonProperty("ID")]
+        public int Id { get; set; }
     }
 
     public partial class Foci

@@ -21,10 +21,9 @@ namespace swnbot.Classes {
         public int ID { get; set; }
         public ulong player_discord_id { get; set; }
         public string name { get; set; }
-        public string xp { get; set; }
-        public Classes.Class Class { get; set; }
-        public string Background { get; set; }
-        public string Gender { get; set; }
+        public Classes.CharacterClass[] Class { get; set; }
+        public Classes.Backgrounds Background { get; set; }
+        public Classes.Gender Gender { get; set; }
         public List<Classes.skills> skills { get; set; } = Skill.InitSkills(System.IO.File.ReadAllText("Data/skills.json")).ToList();
         public List<Classes.Foci> foci { get; set; } = Foci.FromJson(System.IO.File.ReadAllText("Data/foci.json")).ToList();
         public string Faction { get; set; }
