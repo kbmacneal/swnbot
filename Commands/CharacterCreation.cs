@@ -46,14 +46,13 @@ namespace swnbot.Commands
         [Command("uploadcharacter")]
         public async Task UploadcharacterAsync()
         {
-            if (Context.Message.Attachments.Count == 0) await ReplyAsync("You must attach your json file in order to bulk upload a character");
+            if (Context.Message.Attachments.Count == 0) await ReplyAsync("You must attach your json file in order to bulk upload a character.");
 
             Attachment attach = Context.Message.Attachments.ToArray()[0];
 
             var client = new RestClient(attach.Url);
             RestRequest request = new RestRequest { Method = Method.GET };
-            byte[] response = client.DownloadData(request);
-            System.IO.File.WriteAllBytes("temp.json", response);
+            System.IO.File.WriteAllBytes("temp.json", client.DownloadData(request));
 
             try
             {
@@ -61,6 +60,7 @@ namespace swnbot.Commands
                 if (character == null)
                 {
                     System.IO.File.Delete("temp.json");
+                    await ReplyAsync("Character file invalid. Contact an Administrator");
                     return;
                 }
 
