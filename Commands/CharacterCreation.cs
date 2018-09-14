@@ -76,6 +76,7 @@ namespace swnbot.Commands
                 System.IO.File.Delete("temp.json");
             }
         }
+
         [Command("deletecharacter")]
         [RequireUserPermission(GuildPermission.Administrator)]
         public async Task DeletecharacterAsync(string name)
@@ -83,11 +84,18 @@ namespace swnbot.Commands
             Classes.character character = character.get_character(name);
 
             Classes.character.delete_character(character);
-            
+
             await ReplyAsync("Character Deleted.");
 
         }
 
+        [Command("listcharacters")]
+        [RequireUserPermission(GuildPermission.Administrator)]
+        public async Task ListcharactersAsync(string name)
+        {
+            List<Classes.character> characters = character.get_character();
 
+            await ReplyAsync(string.Join(System.Environment.NewLine,characters.Select(e=>e.name).ToList()));
+        }
     }
 }

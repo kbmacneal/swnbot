@@ -46,6 +46,13 @@ namespace swnbot.Classes {
         public int creds { get; set; }
         public int armor {get;set;} = -1;
 
+        public static List<character> get_character () {
+            var store = new DataStore ("character.json");
+
+            // Get employee collection
+            return store.GetCollection<character> ().AsQueryable ().ToList();
+        }
+
         public static character get_character (int id) {
             var store = new DataStore ("character.json");
 
