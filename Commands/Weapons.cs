@@ -40,7 +40,7 @@ namespace swnbot.Commands
         }
 
         [Command("Attack")]
-        private async Task AttackAsync(string weapon, int optional_mod = 0)
+        private async Task AttackAsync(string weapon, string skill ="Shoot", int optional_mod = 0)
         {
             int modifier = 0;
             RollToHit rh = new RollToHit();
@@ -54,13 +54,19 @@ namespace swnbot.Commands
                 await ReplyAsync("User does not have a character, please create one first.");
                 return;
             }
-
+            
+            //Attack bonus
             modifier += character.atk_bonus;
             rh.AttackBonus = character.atk_bonus;
+
+            //stat modifier
             modifier += stat_mod.mod_from_stat_val((int)helpers.GetPropValue(character,weap.Attribute.ToString().ToLower()));
             rh.StatModifier = stat_mod.mod_from_stat_val((int)helpers.GetPropValue(character,weap.Attribute.ToString().ToLower()));
-            modifier += (int)character.skills.First(e => e.Name == "Shoot").Level;
-            rh.SkillModifier = (int)character.skills.First(e => e.Name == "Shoot").Level;
+
+            //skill modifier
+            modifier += (int)character.skills.First(e => e.Name == skill).Level;
+            rh.SkillModifier = (int)character.skills.First(e => e.Name == skill).Level;
+
 
             rh.Roll = "1d20";
             List<int> rolls = new List<int>();
@@ -73,18 +79,11 @@ namespace swnbot.Commands
             //roll damage
             RollDamage rd = new RollDamage();
 
-            title = character.name + "rolls damage";
-            if (character == null)
-            {
-                await ReplyAsync("User does not have a character, please create one first.");
-                return;
-            }
-
-            modifier += stat_mod.mod_from_stat_val(character.dexterity);
-            rd.DexMod = stat_mod.mod_from_stat_val(character.dexterity);
+            modifier += stat_mod.mod_from_stat_val((int)helpers.GetPropValue(character,weap.Attribute.ToString().ToLower()));
+            rd.DexMod = stat_mod.mod_from_stat_val((int)helpers.GetPropValue(character,weap.Attribute.ToString().ToLower()));
 
             rolls = new List<int>();
-            
+
             if (weap == null)
             {
                 await ReplyAsync("Weapon selection invalid, please try again.");
