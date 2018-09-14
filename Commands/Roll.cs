@@ -54,26 +54,26 @@ namespace swnbot.Commands
             }
 
             string stat = "";
-            if(short_to_long.TryGetValue(stat_name.ToLower(), out stat)) {
-
+            if(short_to_long.TryGetValue(stat_name.ToLower(), out stat)) 
+            {
             } else {
-                await ReplyAsync("Skill invalid");
+                await ReplyAsync("Stat invalid");
                 return;
             }
 
             List<int> dice_results = new List<int>();
 
-            if(character.skills.First(e=>e.Name==skill_name).Level > 0)
+            if(character.skills.First(e=>e.Name==skill_name).Specialist > 0)
             {
-                int num_die = 2+character.skills.First(e=>e.Name==skill_name).Level;
+                int num_die = 2+character.skills.First(e=>e.Name==skill_name).Specialist;
                 string diceroll = num_die.ToString() + "d6";
-                int modifier = stat_mod.mod_from_stat_val((int)helpers.GetPropValue(character,stat_name)) + mod;
+                int modifier = stat_mod.mod_from_stat_val((int)helpers.GetPropValue(character,stat)) + mod;
                 
                 dice_results = RollKeeps(diceroll + "+" + modifier.ToString(),2);
             }
             else
             {
-                string diceroll = "2d6+" + (stat_mod.mod_from_stat_val((int)helpers.GetPropValue(character,stat_name)) + mod).ToString();
+                string diceroll = "2d6+" + (stat_mod.mod_from_stat_val((int)helpers.GetPropValue(character,stat)) + mod).ToString();
 
                 dice_results = Roll(diceroll);
             }
@@ -82,7 +82,32 @@ namespace swnbot.Commands
             await ReplyAsync(rtn_name + " rolled a " + dice_results.Sum() + " (" + string.Join(", ", dice_results) + ")");
         }
 
-        private static readonly Dictionary<string, string> short_to_long = new Dictionary<string, string> {
+        [Command("attack")]
+        private async Task AttackRollAsync(string weapon_name, int mod = 0) 
+        {
+            SocketGuildUser usr = Context.Guild.GetUser(Context.Message.Author.Id);
+            string rtn_name = usr.Nickname == null ? usr.Username : usr.Nickname;
+
+            character character = character.get_character(Context.Message.Author.Id);
+            if(character == null)
+            {
+                await ReplyAsync("Create a character first.");
+                return;
+            }
+
+            //TO DO: Determine Weapon being used to attack with. The weapon will hold associated stat, skill, 
+
+            List<int> attack_results = new List<int>();
+            List<int> damage_results = new List<int>();
+        
+            //TO DO: Attack Roll
+
+            //TO DO: Damage Roll           
+
+            await ReplyAsync(rtn_name + " rolled an attack if " + attack_results.Sum() + " (" + string.Join(", ", attack_results) + ") for a damage of " + damage_results.Sum() + "(" +string.Join(", ", damage_results) + ")");
+        }
+        private static readonly Dictionary<string, string> short_to_long = new Dictionary<string, string> 
+        {
             { "str", "strength" },
             { "dex", "dexerity" },
             { "con", "constitution"},
