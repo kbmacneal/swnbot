@@ -17,6 +17,17 @@ using swnbot.Classes;
 
 namespace swnbot.Classes {
 
+    public class RollToHit
+    {
+        public string Roll { get; set; }
+        public int AttackBonus { get; set; }
+        public int StatModifier { get; set; }
+        public int SkillModifier { get; set; }
+        public string DiceResults { get; set; }
+        public int Result { get; set; }
+
+    }
+
     public class character {
         public int ID { get; set; }
         public ulong player_discord_id { get; set; }
@@ -98,30 +109,30 @@ namespace swnbot.Classes {
             store.Dispose();
         }
 
-        private static object RollToHit(character character, string stat, string weapon_name, int optional_mod = 0)
+        private object RollToHit(string stat, string weapon_name, int optional_mod = 0)
         {
             int modifier = 0;
             modifier += optional_mod;
             Classes.RollToHit rh = new Classes.RollToHit();
 
-            Classes.Weapon weap = character.weapons.FirstOrDefault(e=>e.Name == weapon_name);
+            Classes.Weapon weap = this.weapons.FirstOrDefault(e=>e.Name == weapon_name);
             if (weap == null)
             {
                 return null;
             }
 
-            string title = character.name + "rolls to hit";
-            if (character == null)
+            string title = this.name + "rolls to hit";
+            if (this == null)
             {
                 return null;
             }
 
-            modifier += character.atk_bonus;
-            rh.AttackBonus = character.atk_bonus;
-            modifier += stat_mod.mod_from_stat_val((int)helpers.GetPropValue(character,weap.Attribute.ToString().ToLower()));
-            rh.StatModifier = stat_mod.mod_from_stat_val((int)helpers.GetPropValue(character,weap.Attribute.ToString().ToLower()));
-            modifier += (int)character.skills.First(e => e.Name == "Shoot").Level;
-            rh.SkillModifier = (int)character.skills.First(e => e.Name == "Shoot").Level;
+            modifier += this.atk_bonus;
+            rh.AttackBonus = this.atk_bonus;
+            modifier += stat_mod.mod_from_stat_val((int)helpers.GetPropValue(this,weap.Attribute.ToString().ToLower()));
+            rh.StatModifier = stat_mod.mod_from_stat_val((int)helpers.GetPropValue(this,weap.Attribute.ToString().ToLower()));
+            modifier += (int)this.skills.First(e => e.Name == "Shoot").Level;
+            rh.SkillModifier = (int)this.skills.First(e => e.Name == "Shoot").Level;
 
             rh.Roll = "1d20";
             List<int> rolls = new List<int>();

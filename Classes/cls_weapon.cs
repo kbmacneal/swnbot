@@ -18,18 +18,7 @@ namespace swnbot.Classes
         public string DiceResults { get; set; }
         public int Result { get; set; }
 
-    }
-
-    public class RollToHit
-    {
-        public string Roll { get; set; }
-        public int AttackBonus { get; set; }
-        public int StatModifier { get; set; }
-        public int SkillModifier { get; set; }
-        public string DiceResults { get; set; }
-        public int Result { get; set; }
-
-    }
+    }   
 
     public partial class Weapon
     {
@@ -56,6 +45,29 @@ namespace swnbot.Classes
 
         [JsonProperty("TechLevel")]
         public int TechLevel { get; set; }
+
+        private object RollRangedDamage(character character, int optional_mod = 0)
+        {
+            int modifier = 0;
+            RollDamage rd = new RollDamage();
+
+            string title = character.name + "rolls damage";
+
+            modifier += stat_mod.mod_from_stat_val((int)helpers.GetPropValue(character, this.Attribute.ToString().ToLower()));
+            rd.DexMod = stat_mod.mod_from_stat_val((int)helpers.GetPropValue(character, this.Attribute.ToString().ToLower()));
+
+            List<int> rolls = new List<int>();
+
+            rolls = Commands.roller.Roll(this.Damage);
+            rd.Roll = this.Damage;
+            modifier += rolls.Sum();
+            modifier += optional_mod;
+            rd.OptionalMod = optional_mod;
+            rd.Result = modifier;
+            rd.DiceResults = "(" + string.Join(", ", rolls) + ")";
+
+            return helpers.ObjToEmbed(rd, title);
+        }
     }
 
     public enum Attribute { Dexterity };
@@ -131,32 +143,6 @@ namespace swnbot.Classes
 
         public static readonly ParseStringConverter Singleton = new ParseStringConverter();
 
-        private static object RollRangedDamage(character character, Weapon weap, int optional_mod = 0)
-        {
-            int modifier = 0;
-            RollDamage rd = new RollDamage();
-
-            string title = character.name + "rolls damage";
-
-            modifier += stat_mod.mod_from_stat_val((int)helpers.GetPropValue(character, weap.Attribute.ToString().ToLower()));
-            rd.DexMod = stat_mod.mod_from_stat_val((int)helpers.GetPropValue(character, weap.Attribute.ToString().ToLower()));
-
-            List<int> rolls = new List<int>();
-
-            if (weap == null)
-            {
-                return null;
-            }
-
-            rolls = Commands.roller.Roll(weap.Damage);
-            rd.Roll = weap.Damage;
-            modifier += rolls.Sum();
-            modifier += optional_mod;
-            rd.OptionalMod = optional_mod;
-            rd.Result = modifier;
-            rd.DiceResults = "(" + string.Join(", ", rolls) + ")";
-
-            return helpers.ObjToEmbed(rd, title);
-        }
+        
     }
 }
