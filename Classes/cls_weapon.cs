@@ -138,8 +138,8 @@ namespace swnbot.Classes
 
             string title = character.name + "rolls damage";
 
-            modifier += stat_mod.mod_from_stat_val((int)helpers.GetPropValue(character,weap.Attribute.ToString().ToLower()));
-            rd.DexMod = stat_mod.mod_from_stat_val((int)helpers.GetPropValue(character,weap.Attribute.ToString().ToLower()));
+            modifier += stat_mod.mod_from_stat_val((int)helpers.GetPropValue(character, weap.Attribute.ToString().ToLower()));
+            rd.DexMod = stat_mod.mod_from_stat_val((int)helpers.GetPropValue(character, weap.Attribute.ToString().ToLower()));
 
             List<int> rolls = new List<int>();
 
@@ -159,6 +159,4 @@ namespace swnbot.Classes
             return helpers.ObjToEmbed(rd, title);
         }
     }
-
-
 }
