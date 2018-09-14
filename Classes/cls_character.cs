@@ -37,12 +37,12 @@ namespace swnbot.Classes {
         public int xp_til_next { get; set; }
         public int ac { get; set; }
         public int atk_bonus { get; set; }
-        public int strength { get; set; } //Paramter 'str' when passed in by user?
-        public int dexterity { get; set; } //Parameter 'dex' when passed in by user?
-        public int constitution { get; set; } //Parameter 'con' when passed in by user?
-        public int intelligence { get; set; } //Parameter 'int' when passed in by user?
-        public int wisdom { get; set; } //Parameter 'wis' when passed in by user?
-        public int charisma { get; set; } //Parameter 'cha' when passed in by user?
+        public int strength { get; set; } 
+        public int dexterity { get; set; } 
+        public int constitution { get; set; } 
+        public int intelligence { get; set; } 
+        public int wisdom { get; set; }
+        public int charisma { get; set; } 
         public int creds { get; set; }
         public int armor {get;set;} = -1;
 

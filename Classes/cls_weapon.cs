@@ -33,11 +33,7 @@ namespace swnbot.Classes
         public Attribute? Attribute { get; set; }
 
         [JsonProperty("TechLevel")]
-        [JsonConverter(typeof(ParseStringConverter))]
-        public long TechLevel { get; set; }
-
-        [JsonProperty("Attrubute")]
-        public object Attrubute { get; set; }
+        public int TechLevel { get; set; }
     }
 
     public enum Attribute { Dexterity };
