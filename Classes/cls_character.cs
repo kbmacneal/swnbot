@@ -45,6 +45,7 @@ namespace swnbot.Classes {
         public int charisma { get; set; } 
         public int creds { get; set; }
         public int armor {get;set;} = -1;
+        public Classes.Weapon[] weapons {get;set;}
 
         public static List<character> get_character () {
             var store = new DataStore ("character.json");
