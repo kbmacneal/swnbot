@@ -39,15 +39,41 @@ namespace swnbot.Commands
 
         }
 
-        [Command("rolldamage")]
-        private async Task RolldamageAsync(string weapon, int optional_mod = 0)
+        [Command("Attack")]
+        private async Task AttackAsync(string weapon, int optional_mod = 0)
         {
             int modifier = 0;
-            RollDamage rd = new RollDamage();
+            RollToHit rh = new RollToHit();
             SocketGuildUser usr = Context.Guild.GetUser(Context.Message.Author.Id);
             character character = Classes.character.get_character(Context.Message.Author.Id);
+            Classes.Weapon weap = Classes.Weapon.FromJson("Data/weapons.json").FirstOrDefault(e => e.Name == weapon);
 
-            string title = character.name + "rolls damage";
+            string title = character.name + "rolls to hit";
+            if (character == null)
+            {
+                await ReplyAsync("User does not have a character, please create one first.");
+                return;
+            }
+
+            modifier += character.atk_bonus;
+            rh.AttackBonus = character.atk_bonus;
+            modifier += stat_mod.mod_from_stat_val((int)helpers.GetPropValue(character,weap.Attribute.ToString().ToLower()));
+            rh.StatModifier = stat_mod.mod_from_stat_val((int)helpers.GetPropValue(character,weap.Attribute.ToString().ToLower()));
+            modifier += (int)character.skills.First(e => e.Name == "Shoot").Level;
+            rh.SkillModifier = (int)character.skills.First(e => e.Name == "Shoot").Level;
+
+            rh.Roll = "1d20";
+            List<int> rolls = new List<int>();
+            rolls = roller.Roll("1d20");
+            rh.DiceResults = "(" + string.Join(", ", rolls) + ")";
+            modifier += rolls.Sum();
+            rh.Result = modifier;
+            await Context.Channel.SendMessageAsync("", false, helpers.ObjToEmbed(rh, title), null);
+
+            //roll damage
+            RollDamage rd = new RollDamage();
+
+            title = character.name + "rolls damage";
             if (character == null)
             {
                 await ReplyAsync("User does not have a character, please create one first.");
@@ -57,10 +83,8 @@ namespace swnbot.Commands
             modifier += stat_mod.mod_from_stat_val(character.dexterity);
             rd.DexMod = stat_mod.mod_from_stat_val(character.dexterity);
 
-            List<int> rolls = new List<int>();
-
-            Classes.Weapon weap = Classes.Weapon.FromJson("Data/weapons.json").FirstOrDefault(e => e.Name == weapon);
-
+            rolls = new List<int>();
+            
             if (weap == null)
             {
                 await ReplyAsync("Weapon selection invalid, please try again.");
@@ -77,36 +101,36 @@ namespace swnbot.Commands
             await Context.Channel.SendMessageAsync("", false, helpers.ObjToEmbed(rd, title), null);
         }
 
-        [Command("rolltohit")]
-        private async Task RolltohitAsync()
-        {
-            int modifier = 0;
-            RollToHit rh = new RollToHit();
-            SocketGuildUser usr = Context.Guild.GetUser(Context.Message.Author.Id);
-            character character = Classes.character.get_character(Context.Message.Author.Id);
+        // [Command("rolltohit")]
+        // private async Task RolltohitAsync()
+        // {
+        //     int modifier = 0;
+        //     RollToHit rh = new RollToHit();
+        //     SocketGuildUser usr = Context.Guild.GetUser(Context.Message.Author.Id);
+        //     character character = Classes.character.get_character(Context.Message.Author.Id);
 
-            string title = character.name + "rolls to hit";
-            if (character == null)
-            {
-                await ReplyAsync("User does not have a character, please create one first.");
-                return;
-            }
+        //     string title = character.name + "rolls to hit";
+        //     if (character == null)
+        //     {
+        //         await ReplyAsync("User does not have a character, please create one first.");
+        //         return;
+        //     }
 
-            modifier += character.atk_bonus;
-            rh.AttackBonus = character.atk_bonus;
-            modifier += stat_mod.mod_from_stat_val(character.dexterity);
-            rh.StatModifier = stat_mod.mod_from_stat_val(character.dexterity);
-            modifier += (int)character.skills.First(e => e.Name == "Shoot").Level;
-            rh.SkillModifier = (int)character.skills.First(e => e.Name == "Shoot").Level;
+        //     modifier += character.atk_bonus;
+        //     rh.AttackBonus = character.atk_bonus;
+        //     modifier += stat_mod.mod_from_stat_val(character.dexterity);
+        //     rh.StatModifier = stat_mod.mod_from_stat_val(character.dexterity);
+        //     modifier += (int)character.skills.First(e => e.Name == "Shoot").Level;
+        //     rh.SkillModifier = (int)character.skills.First(e => e.Name == "Shoot").Level;
 
-            rh.Roll = "1d20";
-            List<int> rolls = new List<int>();
-            rolls = roller.Roll("1d20");
-            rh.DiceResults = "(" + string.Join(", ", rolls) + ")";
-            modifier += rolls.Sum();
-            rh.Result = modifier;
-            await Context.Channel.SendMessageAsync("", false, helpers.ObjToEmbed(rh, title), null);
-        }
+        //     rh.Roll = "1d20";
+        //     List<int> rolls = new List<int>();
+        //     rolls = roller.Roll("1d20");
+        //     rh.DiceResults = "(" + string.Join(", ", rolls) + ")";
+        //     modifier += rolls.Sum();
+        //     rh.Result = modifier;
+        //     await Context.Channel.SendMessageAsync("", false, helpers.ObjToEmbed(rh, title), null);
+        // }
     }
 
 }

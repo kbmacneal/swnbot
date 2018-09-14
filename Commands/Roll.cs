@@ -82,30 +82,30 @@ namespace swnbot.Commands
             await ReplyAsync(rtn_name + " rolled a " + dice_results.Sum() + " (" + string.Join(", ", dice_results) + ")");
         }
 
-        [Command("attack")]
-        private async Task AttackRollAsync(string weapon_name, int mod = 0) 
-        {
-            SocketGuildUser usr = Context.Guild.GetUser(Context.Message.Author.Id);
-            string rtn_name = usr.Nickname == null ? usr.Username : usr.Nickname;
+        // [Command("attack")]
+        // private async Task AttackRollAsync(string weapon_name, int mod = 0) 
+        // {
+        //     SocketGuildUser usr = Context.Guild.GetUser(Context.Message.Author.Id);
+        //     string rtn_name = usr.Nickname == null ? usr.Username : usr.Nickname;
 
-            character character = character.get_character(Context.Message.Author.Id);
-            if(character == null)
-            {
-                await ReplyAsync("Create a character first.");
-                return;
-            }
+        //     character character = character.get_character(Context.Message.Author.Id);
+        //     if(character == null)
+        //     {
+        //         await ReplyAsync("Create a character first.");
+        //         return;
+        //     }
 
-            //TO DO: Determine Weapon being used to attack with. The weapon will hold associated stat, skill, 
+        //     //TO DO: Determine Weapon being used to attack with. The weapon will hold associated stat, skill, 
 
-            List<int> attack_results = new List<int>();
-            List<int> damage_results = new List<int>();
+        //     List<int> attack_results = new List<int>();
+        //     List<int> damage_results = new List<int>();
         
-            //TO DO: Attack Roll
+        //     //TO DO: Attack Roll
 
-            //TO DO: Damage Roll           
+        //     //TO DO: Damage Roll           
 
-            await ReplyAsync(rtn_name + " rolled an attack if " + attack_results.Sum() + " (" + string.Join(", ", attack_results) + ") for a damage of " + damage_results.Sum() + "(" +string.Join(", ", damage_results) + ")");
-        }
+        //     await ReplyAsync(rtn_name + " rolled an attack if " + attack_results.Sum() + " (" + string.Join(", ", attack_results) + ") for a damage of " + damage_results.Sum() + "(" +string.Join(", ", damage_results) + ")");
+        // }
         private static readonly Dictionary<string, string> short_to_long = new Dictionary<string, string> 
         {
             { "str", "strength" },
