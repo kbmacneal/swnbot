@@ -19,8 +19,10 @@ namespace swnbot.Commands
     public class CharacterCreation : ModuleBase<SocketCommandContext>
     {
         [Command("newcharacter")]
-        public async Task NewcharacterAsync(string name)
+        public async Task NewcharacterAsync(params string[] args)
         {
+
+            string name = string.Join(" ", args);
             Classes.character character = new character
             {
                 name = name
@@ -79,8 +81,9 @@ namespace swnbot.Commands
 
         [Command("deletecharacter")]
         [RequireUserPermission(GuildPermission.Administrator)]
-        public async Task DeletecharacterAsync(string name)
+        public async Task DeletecharacterAsync(params string[] args)
         {
+            string name = string.Join(" ",args);
             Classes.character character = character.get_character(name);
 
             Classes.character.delete_character(character);
@@ -91,7 +94,7 @@ namespace swnbot.Commands
 
         [Command("listcharacters")]
         [RequireUserPermission(GuildPermission.Administrator)]
-        public async Task ListcharactersAsync(string name)
+        public async Task ListcharactersAsync()
         {
             List<Classes.character> characters = character.get_character();
 
