@@ -19,8 +19,10 @@ namespace swnbot.Commands
     public class CharacterCreation : ModuleBase<SocketCommandContext>
     {
         [Command("newcharacter")]
-        public async Task NewcharacterAsync(string name)
+        public async Task NewcharacterAsync(params string[] args)
         {
+
+            string name = string.Join(" ", args);
             Classes.character character = new character
             {
                 name = name
@@ -76,18 +78,47 @@ namespace swnbot.Commands
                 System.IO.File.Delete("temp.json");
             }
         }
+
+        [Command("getcharacter")]
+        [RequireUserPermission(GuildPermission.Administrator)]
+        public async Task GetcharacterAsync(params string[] args)
+        {
+            string name = string.Join(" ",args);
+            Classes.character character = character.get_character(name);
+
+            string serialized = Newtonsoft.Json.JsonConvert.SerializeObject(character);
+
+            await System.IO.File.WriteAllTextAsync(name + ".json", serialized);
+
+            RequestOptions opt = new RequestOptions
+            {
+                RetryMode = RetryMode.RetryRatelimit
+            };
+
+           Context.Channel.SendFileAsync(name + ".json", "Here is your character sheet in json format. You will need to use the sb!uploadcharacter command to perform bulk updates.", false, opt).GetAwaiter().GetResult();
+
+        }
+
         [Command("deletecharacter")]
         [RequireUserPermission(GuildPermission.Administrator)]
-        public async Task DeletecharacterAsync(string name)
+        public async Task DeletecharacterAsync(params string[] args)
         {
+            string name = string.Join(" ",args);
             Classes.character character = character.get_character(name);
 
             Classes.character.delete_character(character);
-            
+
             await ReplyAsync("Character Deleted.");
 
         }
 
+        [Command("listcharacters")]
+        [RequireUserPermission(GuildPermission.Administrator)]
+        public async Task ListcharactersAsync()
+        {
+            List<Classes.character> characters = character.get_character();
 
+            await ReplyAsync(string.Join(System.Environment.NewLine,characters.Select(e=>e.name).ToList()));
+        }
     }
 }
