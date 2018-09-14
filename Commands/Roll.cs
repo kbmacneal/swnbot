@@ -106,43 +106,7 @@ namespace swnbot.Commands
 
         //     await ReplyAsync(rtn_name + " rolled an attack if " + attack_results.Sum() + " (" + string.Join(", ", attack_results) + ") for a damage of " + damage_results.Sum() + "(" +string.Join(", ", damage_results) + ")");
         // }
-        [Command("rolltohit")]
-        private async Task RolltohitAsync(string weapon_name)
-        {
-            int modifier = 0;
-            Classes.RollToHit rh = new Classes.RollToHit();
-            SocketGuildUser usr = Context.Guild.GetUser(Context.Message.Author.Id);
-            character character = Classes.character.get_character(Context.Message.Author.Id);
 
-            Classes.Weapon weap = character.weapons.FirstOrDefault(e=>e.Name == weapon_name);
-            if (weap == null)
-            {
-                await ReplyAsync("Invalid Weapon Selection");
-                return;
-            }
-
-            string title = character.name + "rolls to hit";
-            if (character == null)
-            {
-                await ReplyAsync("User does not have a character, please create one first.");
-                return;
-            }
-
-            modifier += character.atk_bonus;
-            rh.AttackBonus = character.atk_bonus;
-            modifier += stat_mod.mod_from_stat_val((int)helpers.GetPropValue(character,weap.Attribute.ToString().ToLower()));
-            rh.StatModifier = stat_mod.mod_from_stat_val((int)helpers.GetPropValue(character,weap.Attribute.ToString().ToLower()));
-            modifier += (int)character.skills.First(e => e.Name == "Shoot").Level;
-            rh.SkillModifier = (int)character.skills.First(e => e.Name == "Shoot").Level;
-
-            rh.Roll = "1d20";
-            List<int> rolls = new List<int>();
-            rolls = roller.Roll("1d20");
-            rh.DiceResults = "(" + string.Join(", ", rolls) + ")";
-            modifier += rolls.Sum();
-            rh.Result = modifier;
-            await Context.Channel.SendMessageAsync("", false, helpers.ObjToEmbed(rh, title), null);
-        }
         private static readonly Dictionary<string, string> short_to_long = new Dictionary<string, string> 
         {
             { "str", "strength" },

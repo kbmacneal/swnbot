@@ -98,6 +98,41 @@ namespace swnbot.Classes {
             store.Dispose();
         }
 
+        private static object RollToHit(character character, string stat, string weapon_name, int optional_mod = 0)
+        {
+            int modifier = 0;
+            modifier += optional_mod;
+            Classes.RollToHit rh = new Classes.RollToHit();
+
+            Classes.Weapon weap = character.weapons.FirstOrDefault(e=>e.Name == weapon_name);
+            if (weap == null)
+            {
+                return null;
+            }
+
+            string title = character.name + "rolls to hit";
+            if (character == null)
+            {
+                return null;
+            }
+
+            modifier += character.atk_bonus;
+            rh.AttackBonus = character.atk_bonus;
+            modifier += stat_mod.mod_from_stat_val((int)helpers.GetPropValue(character,weap.Attribute.ToString().ToLower()));
+            rh.StatModifier = stat_mod.mod_from_stat_val((int)helpers.GetPropValue(character,weap.Attribute.ToString().ToLower()));
+            modifier += (int)character.skills.First(e => e.Name == "Shoot").Level;
+            rh.SkillModifier = (int)character.skills.First(e => e.Name == "Shoot").Level;
+
+            rh.Roll = "1d20";
+            List<int> rolls = new List<int>();
+            rolls = Commands.roller.Roll("1d20");
+            rh.DiceResults = "(" + string.Join(", ", rolls) + ")";
+            modifier += rolls.Sum();
+            rh.Result = modifier;
+            
+            return helpers.ObjToEmbed(rh, title);
+        }
+
         private static readonly Dictionary<string, string> short_to_long = new Dictionary<string, string> {
             { "str", "strength" },
             { "dex", "dexerity" },
