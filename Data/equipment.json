@@ -9,7 +9,7 @@
   {
     "Name": "Backpack",
     "Cost": "5/50",
-    "Encumbrance": "1/*",
+    "Encumbrance": "1/0",
     "TechLevel": "0/4",
     "Id": 2
   },
@@ -400,7 +400,7 @@
   },
   {
     "Name": "Stiletto charge",
-    "Cost": "*",
+    "Cost": null,
     "Encumbrance": "1",
     "TechLevel": "5",
     "Id": 58
