@@ -120,5 +120,28 @@ namespace swnbot.Commands
 
             await ReplyAsync(string.Join(System.Environment.NewLine,characters.Select(e=>e.name).ToList()));
         }
+
+        [Command("addweapon")]
+        [RequireUserPermission(GuildPermission.Administrator)]
+        public async Task AddweaponAsync(params string[] args)
+        {
+
+            string weapon_name = string.Join(" ",args);
+            
+            Weapon weap = Weapon.FromJson("Data/weapons.json").FirstOrDefault(e=>e.Name == weapon_name);
+
+            if(weap == null)
+            {
+                await ReplyAsync("Weapon Selection Invalid");
+            }
+
+            character character = character.get_character(Context.Message.Author.Id);
+
+            character.weapons.Add(weap);
+
+            character.update_character(character);
+
+            await ReplyAsync("Weapons Updated");
+        }
     }
 }

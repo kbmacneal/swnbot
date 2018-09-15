@@ -74,7 +74,7 @@ namespace swnbot.Classes
 
     public partial class Weapon
     {
-        public static Weapon[] FromJson(string json) => JsonConvert.DeserializeObject<Weapon[]>(json, Converter.Settings);
+        public static Weapon[] FromJson(string path) => JsonConvert.DeserializeObject<Weapon[]>(System.IO.File.ReadAllText(path), Converter.Settings);
     }
 
 
