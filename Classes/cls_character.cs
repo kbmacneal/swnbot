@@ -15,7 +15,8 @@ using JsonFlatFileDataStore;
 using Newtonsoft.Json;
 using swnbot.Classes;
 
-namespace swnbot.Classes {
+namespace swnbot.Classes
+{
 
     public class RollToHit
     {
@@ -28,7 +29,8 @@ namespace swnbot.Classes {
 
     }
 
-    public class character {
+    public class character
+    {
         public int ID { get; set; }
         public ulong player_discord_id { get; set; }
         public string name { get; set; }
@@ -48,64 +50,84 @@ namespace swnbot.Classes {
         public int xp_til_next { get; set; }
         public int ac { get; set; }
         public int atk_bonus { get; set; }
-        public int strength { get; set; } 
-        public int dexterity { get; set; } 
-        public int constitution { get; set; } 
-        public int intelligence { get; set; } 
+        public int strength { get; set; }
+        public int dexterity { get; set; }
+        public int constitution { get; set; }
+        public int intelligence { get; set; }
         public int wisdom { get; set; }
-        public int charisma { get; set; } 
+        public int charisma { get; set; }
         public int creds { get; set; }
-        public int armor {get;set;} = -1;
-        public List<Classes.Weapon> weapons {get;set;} = new List<Weapon>();
+        public int armor { get; set; } = -1;
+        public Weapon[] weapons { get; set; } = new Weapon[0];
 
-        public static List<character> get_character () {
-            var store = new DataStore ("character.json");
+        public static List<character> get_character()
+        {
+            var store = new DataStore("character.json");
 
             // Get employee collection
-            return store.GetCollection<character> ().AsQueryable ().ToList();
+            return store.GetCollection<character>().AsQueryable().ToList();
         }
 
-        public static character get_character (int id) {
-            var store = new DataStore ("character.json");
+        public static character get_character(int id)
+        {
+            var store = new DataStore("character.json");
 
             // Get employee collection
-            return store.GetCollection<character> ().AsQueryable ().FirstOrDefault (e => e.ID == id);
+            return store.GetCollection<character>().AsQueryable().FirstOrDefault(e => e.ID == id);
         }
 
-        public static character get_character (string name) {
-            var store = new DataStore ("character.json");
+        public static character get_character(string name)
+        {
+            var store = new DataStore("character.json");
 
             // Get employee collection
-            return store.GetCollection<character> ().AsQueryable ().FirstOrDefault (e => e.name == name);
+            return store.GetCollection<character>().AsQueryable().FirstOrDefault(e => e.name == name);
         }
 
-        public static character get_character (ulong player_id) {
-            var store = new DataStore ("character.json");
+        public static character get_character(ulong player_id)
+        {
+            var store = new DataStore("character.json");
 
             // Get employee collection
-            return store.GetCollection<character> ().AsQueryable ().FirstOrDefault (e => e.player_discord_id == player_id);
+            return store.GetCollection<character>().AsQueryable().FirstOrDefault(e => e.player_discord_id == player_id);
         }
 
-        public static void insert_character (character character) {
-            var store = new DataStore ("character.json");
+        public static void insert_character(character character)
+        {
+            var store = new DataStore("character.json");
 
             // Get employee collection
-            store.GetCollection<character> ().InsertOneAsync (character);
+            store.GetCollection<character>().InsertOneAsync(character);
 
             store.Dispose();
         }
 
-        public static void update_character (character character) {
-            var store = new DataStore ("character.json");
+        public static void update_character(character character)
+        {
+            var store = new DataStore("character.json");
 
-            store.GetCollection<character> ().UpdateOne (e => e.ID == character.ID, character);
+            store.GetCollection<character>().UpdateOne(e => e.ID == character.ID, character as object);
             store.Dispose();
         }
 
-        public static void delete_character (character character) {
-            var store = new DataStore ("character.json");
+        public static void update_weapons(character character, Weapon[] weaps)
+        {
+            var store = new DataStore("character.json");
 
-            store.GetCollection<character> ().DeleteOne (e => e.ID == character.ID);
+            // Get employee collection
+            var collection = store.GetCollection<character>();
+
+            dynamic source = new ExpandoObject();
+            source.Weapons = weaps;
+            collection.UpdateOne(e => e.ID == character.ID, source as object);
+
+        }
+
+        public static void delete_character(character character)
+        {
+            var store = new DataStore("character.json");
+
+            store.GetCollection<character>().DeleteOne(e => e.ID == character.ID);
             store.Dispose();
         }
 
@@ -115,7 +137,7 @@ namespace swnbot.Classes {
             modifier += optional_mod;
             Classes.RollToHit rh = new Classes.RollToHit();
 
-            Classes.Weapon weap = this.weapons.FirstOrDefault(e=>e.Name == weapon_name);
+            Classes.Weapon weap = this.weapons.FirstOrDefault(e => e.Name == weapon_name);
             if (weap == null)
             {
                 return null;
@@ -129,8 +151,8 @@ namespace swnbot.Classes {
 
             modifier += this.atk_bonus;
             rh.AttackBonus = this.atk_bonus;
-            modifier += stat_mod.mod_from_stat_val((int)helpers.GetPropValue(this,weap.Attribute.ToString().ToLower()));
-            rh.StatModifier = stat_mod.mod_from_stat_val((int)helpers.GetPropValue(this,weap.Attribute.ToString().ToLower()));
+            modifier += stat_mod.mod_from_stat_val((int)helpers.GetPropValue(this, weap.Attribute.ToString().ToLower()));
+            rh.StatModifier = stat_mod.mod_from_stat_val((int)helpers.GetPropValue(this, weap.Attribute.ToString().ToLower()));
             modifier += (int)this.skills.First(e => e.Name == "Shoot").Level;
             rh.SkillModifier = (int)this.skills.First(e => e.Name == "Shoot").Level;
 
@@ -140,7 +162,7 @@ namespace swnbot.Classes {
             rh.DiceResults = "(" + string.Join(", ", rolls) + ")";
             modifier += rolls.Sum();
             rh.Result = modifier;
-            
+
             return helpers.ObjToEmbed(rh, title);
         }
 

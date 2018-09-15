@@ -137,9 +137,15 @@ namespace swnbot.Commands
 
             character character = character.get_character(Context.Message.Author.Id);
 
-            character.weapons.Add(weap);
+            List<Weapon> new_weaps = character.weapons.ToList();
 
-            character.update_character(character);
+            new_weaps.Add(weap);
+
+            character.weapons = new_weaps.ToArray();
+
+            Classes.character.update_weapons(character, new_weaps.ToArray());
+
+            character = character.get_character(Context.Message.Author.Id);
 
             await ReplyAsync("Weapons Updated");
         }
