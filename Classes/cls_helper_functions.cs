@@ -19,6 +19,11 @@ namespace swnbot.Classes
             return src.GetType().GetProperty(propName).GetValue(src, null);
         }
 
+        public static void SetPropValue(object src, string propName, object value)
+        {
+            src.GetType().GetProperty(propName).SetValue(src,value);
+        }
+
         public static Embed ObjToEmbed(object obj, string title_property_name = "")
         {
             string[] properties = obj.GetType().GetProperties().Select(e=>e.Name).ToArray();

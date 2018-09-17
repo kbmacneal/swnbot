@@ -80,7 +80,6 @@ namespace swnbot.Commands
         }
 
         [Command("getcharacter")]
-        [RequireUserPermission(GuildPermission.Administrator)]
         public async Task GetcharacterAsync(params string[] args)
         {
             string name = string.Join(" ",args);
@@ -122,7 +121,6 @@ namespace swnbot.Commands
         }
 
         [Command("addweapon")]
-        [RequireUserPermission(GuildPermission.Administrator)]
         public async Task AddweaponAsync(params string[] args)
         {
 
@@ -142,6 +140,32 @@ namespace swnbot.Commands
             character.update_character();
 
             await ReplyAsync("Weapons Updated");
+        }
+
+        [Command("listproperty")]
+        public async Task ListpropertyAsync(params string[] args)
+        {
+            character character = character.get_character(Context.Message.Author.Id);
+
+            List<string> rtnr = new List<string>();
+            
+            rtnr.Add("```");
+            
+            character.GetType().GetProperties().ToList().Select(e=>e.Name).ToList().ForEach(e=>rtnr.Add(e));
+
+            rtnr.Add("```");
+
+            await ReplyAsync(string.Join(System.Environment.NewLine,rtnr));
+        }
+
+        [Command("updateproperty")]
+        public async Task UpdatepropertyAsync(string property, string value)
+        {
+            character character = character.get_character(Context.Message.Author.Id);
+
+            helpers.SetPropValue(character, property, value);
+
+            await ReplyAsync("Property Updated");
         }
     }
 }
