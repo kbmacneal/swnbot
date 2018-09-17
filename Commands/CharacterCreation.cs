@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Dynamic;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -13,6 +14,7 @@ using Discord.WebSocket;
 using Newtonsoft.Json;
 using RestSharp;
 using swnbot.Classes;
+using JsonFlatFileDataStore;
 
 namespace swnbot.Commands
 {
@@ -23,12 +25,10 @@ namespace swnbot.Commands
         {
 
             string name = string.Join(" ", args);
-            Classes.character character = new character
-            {
-                name = name
+            Classes.character character = new character{
+                name = name,
+                player_discord_id = Context.Message.Author.Id
             };
-
-            character.player_discord_id = Context.Message.Author.Id;
 
             character.insert_character(character);
 
@@ -137,15 +137,17 @@ namespace swnbot.Commands
 
             character character = character.get_character(Context.Message.Author.Id);
 
-            List<Weapon> new_weaps = character.weapons.ToList();
+            character.weapons.FirstOrDefault(e=>e.Name == weapon_name).Active = true;
 
-            new_weaps.Add(weap);
+            // Classes.character.update_character(character);
 
-            character.weapons = new_weaps.ToArray();
+            var store = new DataStore("character.json");
 
-            Classes.character.update_weapons(character, new_weaps.ToArray());
+            var collection = store.GetCollection<character>();
 
-            character = character.get_character(Context.Message.Author.Id);
+            await collection.UpdateOneAsync(e => e.ID == character.ID, character);
+
+            store.Dispose();
 
             await ReplyAsync("Weapons Updated");
         }

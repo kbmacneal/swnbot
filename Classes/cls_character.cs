@@ -35,10 +35,10 @@ namespace swnbot.Classes
         public ulong player_discord_id { get; set; }
         public string name { get; set; }
         public CharacterClass[] Class { get; set; }
-        public Backgrounds Background { get; set; }
+        public Backgrounds? Background { get; set; } = null;
         public Gender Gender { get; set; }
         public List<Classes.skills> skills { get; set; } = Skill.InitSkills(System.IO.File.ReadAllText("Data/skills.json")).ToList();
-        public List<Classes.Foci> foci { get; set; } = Foci.FromJson(System.IO.File.ReadAllText("Data/foci.json")).ToList();
+        public List<Classes.Foci> foci { get; set; } = Foci.FromJson("Data/foci.json").ToList();
         public string Faction { get; set; }
         public string Homeworld { get; set; }
         public int cur_hp { get; set; }
@@ -58,7 +58,7 @@ namespace swnbot.Classes
         public int charisma { get; set; }
         public int creds { get; set; }
         public int armor { get; set; } = -1;
-        public Weapon[] weapons { get; set; } = new Weapon[0];
+        public List<Classes.Weapon> weapons { get; set; } = Weapon.FromJson("Data/weapons.json").ToList();
 
         public static List<character> get_character()
         {
@@ -104,24 +104,16 @@ namespace swnbot.Classes
 
         public static void update_character(character character)
         {
-            var store = new DataStore("character.json");
+            var store = new DataStore("character.json");            
 
-            store.GetCollection<character>().UpdateOne(e => e.ID == character.ID, character as object);
+            dynamic source = new ExpandoObject();
+            source = character;
+
+            store.GetCollection<character>().UpdateOne(e => e.ID == character.ID, source as object);
+
             store.Dispose();
         }
 
-        public static void update_weapons(character character, Weapon[] weaps)
-        {
-            var store = new DataStore("character.json");
-
-            // Get employee collection
-            var collection = store.GetCollection<character>();
-
-            dynamic source = new ExpandoObject();
-            source.Weapons = weaps;
-            collection.UpdateOne(e => e.ID == character.ID, source as object);
-
-        }
 
         public static void delete_character(character character)
         {

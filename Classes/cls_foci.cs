@@ -22,7 +22,7 @@ namespace swnbot.Classes
 
     public partial class Foci
     {
-        public static Foci[] FromJson(string json) => JsonConvert.DeserializeObject<Foci[]>(json, Converter.Settings);
+        public static Foci[] FromJson(string path) => JsonConvert.DeserializeObject<Foci[]>(System.IO.File.ReadAllText(path), Converter.Settings);
     }
 
     
