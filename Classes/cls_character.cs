@@ -58,7 +58,7 @@ namespace swnbot.Classes
         public int wisdom { get; set; }
         public int charisma { get; set; }
         public int creds { get; set; }
-        public int armor { get; set; }
+        public Armor armor { get; set; }
         public List<Classes.Weapon> weapons { get; set; }
 
         public character()
@@ -67,7 +67,7 @@ namespace swnbot.Classes
             this.foci = Foci.FromJson("Data/foci.json").ToList();
             this.skills = Skill.InitSkills(System.IO.File.ReadAllText("Data/skills.json")).ToList();
             this.Background = null;
-            this.armor = -1;
+            this.armor = null;
             this.Class = new CharacterClass[0];
         }
 

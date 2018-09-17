@@ -19,8 +19,9 @@ namespace swnbot.Commands
     public class Armor : ModuleBase<SocketCommandContext>
     {
         [Command("changearmor")]
-        public async Task ChangearmorAsync(int armor_id)
+        public async Task ChangearmorAsync(params string[] args)
         {
+            string armor_name = string.Join(" ",args);
             SocketGuildUser usr = Context.Guild.GetUser(Context.Message.Author.Id);
             character character = character.get_character(Context.Message.Author.Id);
 
@@ -29,7 +30,7 @@ namespace swnbot.Commands
                 await ReplyAsync("Character not found. Please create one before proceeding.");
                 return;
             }
-            Classes.Armor selection = Classes.Armor.InitArmor(System.IO.File.ReadAllText("Data/armor.json")).ToList().FirstOrDefault(e => e.Id == armor_id);
+            Classes.Armor selection = Classes.Armor.InitArmor(System.IO.File.ReadAllText("Data/armor.json")).ToList().FirstOrDefault(e => e.Name == armor_name);
 
             if (selection == null)
             {
@@ -38,7 +39,7 @@ namespace swnbot.Commands
 
             }
 
-            character.armor = armor_id;
+            character.armor = selection;
             if (selection.Ac > character.ac) character.ac = selection.Ac;
 
             await ReplyAsync("Armor changed");
@@ -47,7 +48,7 @@ namespace swnbot.Commands
         [Command("displayarmor")]
         public async Task DisplayarmorAsync()
         {
-            await Context.Channel.SendFileAsync("armor.json",null,false,null);
+            await Context.Channel.SendFileAsync("Data/armor.json",null,false,null);
         }
 
         [Command("displayarmor")]
