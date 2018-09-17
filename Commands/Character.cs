@@ -18,7 +18,7 @@ using JsonFlatFileDataStore;
 
 namespace swnbot.Commands
 {
-    public class CharacterCreation : ModuleBase<SocketCommandContext>
+    public class Character : ModuleBase<SocketCommandContext>
     {
         [Command("newcharacter")]
         public async Task NewcharacterAsync(params string[] args)
