@@ -147,11 +147,17 @@ namespace swnbot.Commands
         {
             character character = character.get_character(Context.Message.Author.Id);
 
+            if(character == null)
+            {
+                await ReplyAsync("You must first create a character");
+                return;
+            }
+
             List<string> rtnr = new List<string>();
             
             rtnr.Add("```");
             
-            character.GetType().GetProperties().ToList().Select(e=>e.Name).ToList().ForEach(e=>rtnr.Add(e));
+            character.GetType().GetProperties().ToList().Select(e=>e.Name).ToList().Where(e=>!invalid_properties.Contains(e)).ToList().ForEach(e=>rtnr.Add(e));
 
             rtnr.Add("```");
 
@@ -163,9 +169,19 @@ namespace swnbot.Commands
         {
             character character = character.get_character(Context.Message.Author.Id);
 
-            helpers.SetPropValue(character, property, value);
+            if(invalid_properties.Contains(property))
+            {
+                await ReplyAsync("That property is not accessible via this command. You can try to use the mass change function or you can contact an administrator");
+                return;
+            }
+
+            character = (character)helpers.SetPropValue(character, property, value);
+
+            character.update_character();
 
             await ReplyAsync("Property Updated");
         }
+
+        public static readonly string[] invalid_properties = { "ID", "Gender", "Class",  "player_discord_id", "foci", "skills", "armor", "weapons"};
     }
 }
