@@ -133,17 +133,11 @@ namespace swnbot.Classes
             store.Dispose();
         }
 
-        private object RollToHit(string stat, string weapon_name, int optional_mod = 0)
+        public object RollToHit(Weapon weap, int optional_mod = 0)
         {
             int modifier = 0;
             modifier += optional_mod;
             Classes.RollToHit rh = new Classes.RollToHit();
-
-            Classes.Weapon weap = this.weapons.FirstOrDefault(e => e.Name == weapon_name);
-            if (weap == null)
-            {
-                return null;
-            }
 
             string title = this.name + "rolls to hit";
             if (this == null)

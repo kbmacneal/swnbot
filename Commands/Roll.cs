@@ -105,11 +105,12 @@ namespace swnbot.Commands
             List<int> attack_results = new List<int>();
             List<int> damage_results = new List<int>();
         
-            //TO DO: Attack Roll
+            Embed hit = (Embed)character.RollToHit(weap,mod);
 
-            //TO DO: Damage Roll           
+            Embed dmg = (Embed)weap.RollRangedDamage(character,mod);        
 
-            await ReplyAsync(rtn_name + " rolled an attack if " + attack_results.Sum() + " (" + string.Join(", ", attack_results) + ") for a damage of " + damage_results.Sum() + "(" +string.Join(", ", damage_results) + ")");
+            await Context.Channel.SendMessageAsync("",false,hit,null);
+            await Context.Channel.SendMessageAsync("",false,dmg,null);
         }
 
         private static readonly Dictionary<string, string> short_to_long = new Dictionary<string, string> 

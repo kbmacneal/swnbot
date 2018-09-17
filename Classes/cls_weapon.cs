@@ -46,7 +46,7 @@ namespace swnbot.Classes
         [JsonProperty("TechLevel")]
         public int TechLevel { get; set; }
 
-        private object RollRangedDamage(character character, int optional_mod = 0)
+        public object RollRangedDamage(character character, int optional_mod = 0)
         {
             int modifier = 0;
             RollDamage rd = new RollDamage();
