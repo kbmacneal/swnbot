@@ -113,23 +113,23 @@ namespace swnbot.Classes
             store.Dispose();
         }
 
-        public static void update_character(character character)
+        public void update_character()
         {
             var store = new DataStore("character.json");
 
             var collection = store.GetCollection<character>();
 
-            collection.ReplaceOne(e=>e.ID == character.ID,character, true);
+            collection.ReplaceOne(e=>e.ID == this.ID, this, true);
 
             store.Dispose();
         }
 
 
-        public static void delete_character(character character)
+        public void delete_character()
         {
             var store = new DataStore("character.json");
 
-            store.GetCollection<character>().DeleteOne(e => e.ID == character.ID);
+            store.GetCollection<character>().DeleteOne(e => e.ID == this.ID);
             store.Dispose();
         }
 

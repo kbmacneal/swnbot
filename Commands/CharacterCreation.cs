@@ -66,7 +66,7 @@ namespace swnbot.Commands
                     return;
                 }
 
-                character.update_character(character);
+                character.update_character();
 
                 System.IO.File.Delete("temp.json");
                 await ReplyAsync("Character saved");
@@ -106,7 +106,7 @@ namespace swnbot.Commands
             string name = string.Join(" ",args);
             Classes.character character = character.get_character(name);
 
-            Classes.character.delete_character(character);
+            character.delete_character();
 
             await ReplyAsync("Character Deleted.");
 
@@ -139,7 +139,7 @@ namespace swnbot.Commands
 
             character.weapons.Add(weap);
 
-            Classes.character.update_character(character);
+            character.update_character();
 
             await ReplyAsync("Weapons Updated");
         }

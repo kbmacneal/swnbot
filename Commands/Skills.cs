@@ -46,7 +46,7 @@ namespace swnbot.Commands
                 }
             }
 
-            Classes.character.update_character(character);
+            character.update_character();
 
             await ReplyAsync("Skill Updated.");
         }
@@ -83,7 +83,7 @@ namespace swnbot.Commands
                 }
             }
 
-            Classes.character.update_character(character);
+            character.update_character();
 
             await ReplyAsync("Skill Updated.");
         }
