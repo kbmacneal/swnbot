@@ -137,17 +137,9 @@ namespace swnbot.Commands
 
             character character = character.get_character(Context.Message.Author.Id);
 
-            character.weapons.FirstOrDefault(e=>e.Name == weapon_name).Active = true;
+            character.weapons.Add(weap);
 
-            // Classes.character.update_character(character);
-
-            var store = new DataStore("character.json");
-
-            var collection = store.GetCollection<character>();
-
-            await collection.UpdateOneAsync(e => e.ID == character.ID, character);
-
-            store.Dispose();
+            Classes.character.update_character(character);
 
             await ReplyAsync("Weapons Updated");
         }

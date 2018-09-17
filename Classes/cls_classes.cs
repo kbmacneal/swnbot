@@ -3,9 +3,10 @@ namespace swnbot
 
     public enum CharacterClass
     {
-        Engineer,
+        Expert,
         Warrior,
-        Psychic
+        Psychic,
+        Adventurer
     }
 
     public enum Backgrounds
