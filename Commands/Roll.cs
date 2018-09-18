@@ -101,9 +101,6 @@ namespace swnbot.Commands
             {
                 await ReplyAsync("Weapon selection invalid.");
             }
-
-            List<int> attack_results = new List<int>();
-            List<int> damage_results = new List<int>();
         
             Embed hit = (Embed)character.RollToHit(weap,mod);
 
