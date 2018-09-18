@@ -82,18 +82,18 @@ namespace swnbot.Commands
         [Command("getcharacter")]
         public async Task GetcharacterAsync()
         {
-            Classes.character character = character.get_character(Context.Message.Author.ID);
+            Classes.character character = Classes.character.get_character(Context.Message.Author.Id);
 
             string serialized = Newtonsoft.Json.JsonConvert.SerializeObject(character);
 
-            await System.IO.File.WriteAllTextAsync(name + ".json", serialized);
+            await System.IO.File.WriteAllTextAsync(character.name + ".json", serialized);
 
             RequestOptions opt = new RequestOptions
             {
                 RetryMode = RetryMode.RetryRatelimit
             };
 
-           Context.Channel.SendFileAsync(name + ".json", "Here is your character sheet in json format. You will need to use the sb!uploadcharacter command to perform bulk updates.", false, opt).GetAwaiter().GetResult();
+           Context.Channel.SendFileAsync(character.name + ".json", "Here is your character sheet in json format. You will need to use the sb!uploadcharacter command to perform bulk updates.", false, opt).GetAwaiter().GetResult();
 
         }
 
