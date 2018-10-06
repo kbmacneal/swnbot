@@ -139,7 +139,7 @@ namespace swnbot.Classes
             modifier += optional_mod;
             Classes.RollToHit rh = new Classes.RollToHit();
 
-            string title = this.name + "rolls to hit";
+            string title = this.name + " rolls to hit";
             if (this == null)
             {
                 return null;
